@@ -21,3 +21,7 @@ pnpm-debug.log*
 
 # Local Netlify folder
 .netlify
+
+# Cypress screenshots and videos
+cypress/screenshots/
+cypress/videos/

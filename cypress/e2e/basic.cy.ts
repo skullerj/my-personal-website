@@ -1,17 +1,9 @@
-describe('empty spec', () => {
+describe("initial test", () => {
   beforeEach(() => {
-    cy.visit('/')
-  })
+    cy.visit("/");
+  });
 
-  it('displays the resources text', () => {
-    cy.get('h1')
-    .contains('Quickstart Template');
-  })
-  it('renders the image', () => {
-    cy.get('img')
-    .should('be.visible')
-    .and(($img) => {
-      expect($img[0].naturalWidth).to.be.greaterThan(0);
-    })
-  })
-})
+  it("displays the welcome component", () => {
+    cy.get("h1").contains("Hola!");
+  });
+});
