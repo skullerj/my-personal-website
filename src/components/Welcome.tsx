@@ -3,8 +3,8 @@ function Welcome() {
     <div className="flex flex-col items-center justify-center h-full gap-2 text-center p-4">
       <h1 className="text-6xl">Hola!</h1>
       <h2 className="text-lg">
-        I'm building my personal webiste here. Please come back later to find
-        out how it's going.
+        I&quote;m building my personal webiste here. Please come back later to
+        find out how it&quote;s going.
       </h2>
       <h2 className="text-lg">
         On the meantime, you can visit{" "}
