@@ -6,8 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "test": "npx cypress run"
+    "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/check": "^0.2.0",
