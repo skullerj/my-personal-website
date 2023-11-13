@@ -16,14 +16,14 @@ const posts = await getCollection("blog");
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 
-const socialCount = SOCIALS.filter(social => social.active).length;
+const socialCount = SOCIALS.filter((social) => social.active).length;
 ---
 
 <Layout>
   <Header />
   <main id="main-content">
     <section id="hero">
-      <h1 class="mr-2">Mingalaba</h1>
+      <h1 class="mr-2">Juan Rosero</h1>
       <a
         target="_blank"
         href="/rss.xml"
@@ -41,10 +41,10 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       </a>
 
       <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+        BlogName is a place where I output my ideas from time to time. I'm Juan
+        Rosero, a software developer from Ecuador who is interested in
+        developing a nice website, that can express how I feel and the cool
+        things I get to interact from time to time
       </p>
       <p>
         Read the blog posts or check

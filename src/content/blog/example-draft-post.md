@@ -1,21 +1,17 @@
 ---
-title: Example Draft Post
-author: Sat Naing
-pubDatetime: 2022-06-06T04:06:31Z
-postSlug: example-draft-post
+title: My First Post
+author: Juan Rosero
+pubDatetime: 2023-11-13T08:26:00Z
+postSlug: welcolme-post
 featured: false
-draft: true
+draft: false
 tags:
-  - TypeScript
-  - Astro
-description:
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-  incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel
-  fringilla est
+  - Welcome
+description: In this post, I introduce myself and what I pretend to expresss throught this medium
 ---
 
-Users cannot see this post because it is in draft.
+Hello world
 
 ## Motivation
 
-rec 1
+A lot
