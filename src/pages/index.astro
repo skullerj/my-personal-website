@@ -23,37 +23,34 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
   <Header />
   <main id="main-content">
     <section id="hero">
-      <h1 class="mr-2">Juan Rosero</h1>
-      <a
-        target="_blank"
-        href="/rss.xml"
-        class="rss-link"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
-          ><path
-            d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-          ></path><path
-            d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
-          ></path><circle cx="6" cy="18" r="2"></circle>
-        </svg>
-      </a>
-
+      <h1 class="mr-2">Welcome</h1>
       <p>
-        BlogName is a place where I output my ideas from time to time. I'm Juan
-        Rosero, a software developer from Ecuador who is interested in
-        developing a nice website, that can express how I feel and the cool
-        things I get to interact from time to time
+        El Bloc de Notas is my personal blog where I write about web development
+        and other topics that I find interesting. The name comes from the
+        Spanish translation of "Notepad", which is the app that I normally use
+        when I'm walking around and I have an idea that I want to capture.
       </p>
       <p>
-        Read the blog posts or check
+        If you are interested in the code, you can find it
         <LinkButton
-          className="hover:text-skin-accent underline underline-offset-4 decoration-dashed"
+          className="description-link"
           href="https://github.com/satnaing/astro-paper#readme"
         >
-          README
-        </LinkButton> for more info.
+          here.
+        </LinkButton>
+      </p>
+      <p>
+        Credits to <LinkButton
+          className="description-link"
+          href="https://github.com/satnaing"
+        >
+          @satnaing
+        </LinkButton> for making <LinkButton
+          className="description-link"
+          href="https://github.com/satnaing/astro-paper#readme"
+        >
+          Astro Paper
+        </LinkButton>, the template that I used to build this blog.
       </p>
       {
         // only display if at least one social link is enabled
@@ -157,5 +154,8 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
   }
   .all-posts-btn-wrapper {
     @apply my-8 text-center;
+  }
+  .description-link {
+    @apply hover:text-skin-accent underline underline-offset-4 decoration-dashed;
   }
 </style>

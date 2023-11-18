@@ -3,34 +3,29 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-AstroPaper is a minimal, responsive and SEO-friendly Astro blog theme. I designed and crafted this based on [my personal blog](https://satnaing.dev/blog).
+## Hello there!
 
-This theme is aimed to be accessible out of the box. Light and dark mode are supported by
-default and additional color schemes can also be configured.
+I'm Juan, the author of this blog. On this corner you will find more info about and the reason for this website to exist.
 
-This theme is self-documented \_ which means articles/posts in this theme can also be considered as documentations. So, see the documentation for more info.
+First, let me thank you for being here. This website has been in the making for a long time. One of those projects that you never end up publishing and always change direction.
 
-<div>
-  <img src="/assets/dev.svg" class="sm:w-1/2 mx-auto" alt="coding dev illustration">
-</div>
+## Why this blog?
 
-## Tech Stack
+The motivation is just to push myself to do something that I find amusing to create while hopefully lighting someone else brain with an interesting idea I stumbled upon.
 
-This theme is written in vanilla JavaScript (+ TypeScript for type checking) and a little bit of ReactJS for some interactions. TailwindCSS is used for styling; and Markdown is used for blog contents.
+## About the Juan and Only
 
-## Features
+I started building websites in Quito, around 2016, when a friend of mine got us a job to create a rental listings website. The person who hired us just wanted to cut on costs so she was fine with us still studying at our University and not having any real-world experience. From that point, it has just been one job after the other and now I'm working for a company in the UK but living in Lisbon.
 
-Here are certain features of this site.
+On a day to day basis I work with:
 
-- fully responsive and accessible
-- SEO-friendly
-- light & dark mode
-- fuzzy search
-- super fast performance
-- draft posts
-- pagination
-- sitemap & rss feed
-- highly customizable
+- React
+- JavaScript and TypeScript
+- GraphQL
 
-If you like this theme, you can star/contribute to the [repo](https://github.com/satnaing/astro-paper).  
-Or you can even give any feedback via my [email](mailto:contact@satnaing.dev).
+And here are some stuff I'm trying to incorporate
+
+- Rust
+- Astro, as you can see with this blog
+
+If you have something to share with me, don't hesitate to drop me an [email](mailto:juan@roser.dev).
