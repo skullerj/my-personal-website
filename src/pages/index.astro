@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
@@ -10,6 +11,7 @@ import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import slugify from "@utils/slugify";
 import { SOCIALS } from "@config";
+import profilePic from '../assets/profile-pic.jpg';
 
 const posts = await getCollection("blog");
 
@@ -23,12 +25,18 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
   <Header />
   <main id="main-content">
     <section id="hero">
-      <h1 class="mr-2">Welcome</h1>
+      <div class="header-wrapper">
+        <h1 class="mr-2">Hello!</h1>
+        <Image src={profilePic} alt="Profile picture" class="profile-pic" />
+      </div>
+      <h2 class="text-xl">Welcome to El Bloc de Notas!</h2>
       <p>
-        El Bloc de Notas is my personal blog where I write about web development
-        and other topics that I find interesting. The name comes from the
-        Spanish translation of "Notepad", which is the app that I normally use
-        when I'm walking around and I have an idea that I want to capture.
+       I use this space as a sandbox for things I find interesting and want to share, as well as an entrypoint for people that want to get in touch. I hope you find something useful here.
+      </p>
+      <br/>
+      <h2 class="text-xl">About me</h2>
+      <p>
+        I'm Juan Rosero, a Front End developer from Ecuador living in London. I like coding and lukily I make money doing it so that's good. If you want to find more about me please visit my <LinkButton href="/about">about</LinkButton> page.
       </p>
       <p>
         If you are interested in the code, you can find it
@@ -38,19 +46,6 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
         >
           here.
         </LinkButton>
-      </p>
-      <p>
-        Credits to <LinkButton
-          className="description-link"
-          href="https://github.com/satnaing"
-        >
-          @satnaing
-        </LinkButton> for making <LinkButton
-          className="description-link"
-          href="https://github.com/satnaing/astro-paper#readme"
-        >
-          Astro Paper
-        </LinkButton>, the template that I used to build this blog.
       </p>
       {
         // only display if at least one social link is enabled
@@ -122,16 +117,16 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
 <style>
   /* ===== Hero Section ===== */
   #hero {
-    @apply pb-6 pt-8;
+    @apply py-6;
+  }
+  .header-wrapper {
+    @apply flex items-center justify-start gap-4 sm:gap-6 mb-6 sm:justify-center;
+  }
+  .profile-pic {
+    @apply rounded-full w-24 h-24 object-cover border-2 border-skin-accent sm:w-24 sm:h-24;
   }
   #hero h1 {
-    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
-  }
-  #hero .rss-link {
-    @apply mb-6;
-  }
-  #hero .rss-icon {
-    @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
+    @apply my-3 text-5xl font-bold sm:mt-4 sm:my-2 sm:mb-3 sm:text-5xl sm:text-center;
   }
   #hero p {
     @apply my-2;
