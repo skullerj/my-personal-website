@@ -2,6 +2,9 @@
 dist/
 .output/
 
+#astro related
+.astro/
+
 # dependencies
 node_modules/
 

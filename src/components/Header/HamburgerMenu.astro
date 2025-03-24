@@ -1,0 +1,75 @@
+---
+const lines = [
+  { x1: "7", y1: "12", x2: "21", y2: "12", class: "line" },
+  { x1: "3", y1: "6", x2: "21", y2: "6", class: "line" },
+  { x1: "12", y1: "18", x2: "21", y2: "18", class: "line" },
+  { x1: "18", y1: "6", x2: "6", y2: "18", class: "close" },
+  { x1: "6", y1: "6", x2: "18", y2: "18", class: "close" },
+];
+---
+
+<button
+  class="hamburger-menu focus-outline self-end p-2 sm:hidden cursor-pointer"
+  aria-label="Open Menu"
+  aria-expanded="false"
+  aria-controls="menu-items"
+  transition:persist
+>
+  <svg
+    xmlns="http://www.w2.org/2000/svg"
+    width="23"
+    height="23"
+    viewBox="-1 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="0.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class={`menu-icon h-6 w-6 scale-125 fill-skin-base`}
+  >
+    {
+      lines.map((line) => (
+        <line
+          x1={line.x1}
+          y1={line.y1}
+          x2={line.x2}
+          y2={line.y2}
+          class={`${line.class} transition-opacity duration-75 ease-in-out`}
+        />
+      ))
+    }
+  </svg>
+</button>
+
+<style>
+  .menu-icon .close {
+    opacity: 0;
+  }
+  .menu-icon.is-active .line {
+    opacity: 0;
+  }
+  .menu-icon.is-active .close {
+    opacity: 100;
+  }
+</style>
+
+<script>
+  import { isMobileNavOpen } from "./store";
+  const menuBtn = document.querySelector(".hamburger-menu");
+  const menuIcon = document.querySelector(".menu-icon");
+
+  function handleClick() {
+    console.log("clicked");
+    const newValue = !isMobileNavOpen.get();
+    isMobileNavOpen.set(newValue);
+  }
+
+  menuBtn?.addEventListener("click", handleClick);
+  console.log("added");
+
+  isMobileNavOpen.subscribe((value: boolean) => {
+    menuIcon?.classList.toggle("is-active", value);
+    menuBtn?.setAttribute("aria-expanded", value.toString());
+    menuBtn?.setAttribute("aria-label", value ? "Close Menu" : "Open Menu");
+  });
+</script>
