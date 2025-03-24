@@ -9,10 +9,11 @@ const lines = [
 ---
 
 <button
-  class="hamburger-menu focus-outline self-end p-2 sm:hidden"
+  class="hamburger-menu focus-outline self-end p-2 sm:hidden cursor-pointer"
   aria-label="Open Menu"
   aria-expanded="false"
   aria-controls="menu-items"
+  transition:persist
 >
   <svg
     xmlns="http://www.w2.org/2000/svg"
@@ -24,7 +25,7 @@ const lines = [
     stroke-width="0.5"
     stroke-linecap="round"
     stroke-linejoin="round"
-    class="menu-icon h-6 w-6 scale-125 fill-skin-base"
+    class={`menu-icon h-6 w-6 scale-125 fill-skin-base`}
   >
     {
       lines.map((line) => (
@@ -51,3 +52,24 @@ const lines = [
     opacity: 100;
   }
 </style>
+
+<script>
+  import { isMobileNavOpen } from "./store";
+  const menuBtn = document.querySelector(".hamburger-menu");
+  const menuIcon = document.querySelector(".menu-icon");
+
+  function handleClick() {
+    console.log("clicked");
+    const newValue = !isMobileNavOpen.get();
+    isMobileNavOpen.set(newValue);
+  }
+
+  menuBtn?.addEventListener("click", handleClick);
+  console.log("added");
+
+  isMobileNavOpen.subscribe((value: boolean) => {
+    menuIcon?.classList.toggle("is-active", value);
+    menuBtn?.setAttribute("aria-expanded", value.toString());
+    menuBtn?.setAttribute("aria-label", value ? "Close Menu" : "Open Menu");
+  });
+</script>

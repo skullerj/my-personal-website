@@ -1,15 +1,7 @@
 ---
 import { LOGO_IMAGE, SITE } from "@config";
 import Hr from "../Hr.astro";
-import LinkButton from "../LinkButton.astro";
-import HamburgerMenu from "./HamburgerMenu.astro";
 import NavMenu from "./NavMenu.astro";
-
-export interface Props {
-  activeNav?: "posts" | "tags" | "about" | "search";
-}
-
-const { activeNav } = Astro.props;
 ---
 
 <header>
@@ -43,33 +35,17 @@ const { activeNav } = Astro.props;
         }
         <span class="text-sm text-skin-accent">By {SITE.author}</span>
       </a>
-      <NavMenu activeNav={activeNav} />
+      <NavMenu />
     </div>
   </div>
   <Hr />
 </header>
 
 <script>
-  function toggleNav() {
-    // Toggle menu
-    const menuBtn = document.querySelector(".hamburger-menu");
-    const menuIcon = document.querySelector(".menu-icon");
-    const menuItems = document.querySelector("#menu-items");
-
-    menuBtn?.addEventListener("click", () => {
-      const menuExpanded = menuBtn.getAttribute("aria-expanded") === "true";
-      menuIcon?.classList.toggle("is-active");
-      menuBtn.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
-      menuBtn.setAttribute(
-        "aria-label",
-        menuExpanded ? "Open Menu" : "Close Menu",
-      );
-      menuItems?.classList.toggle("display-none");
-    });
-  }
-
-  toggleNav();
+  import { isMobileNavOpen } from "./store";
 
   // Runs on view transitions navigation
-  document.addEventListener("astro:after-swap", toggleNav);
+  document.addEventListener("astro:after-swap", () => {
+    isMobileNavOpen.set(false);
+  });
 </script>
