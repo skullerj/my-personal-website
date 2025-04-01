@@ -5,38 +5,28 @@ import NavMenu from "./NavMenu.astro";
 ---
 
 <header>
-  <a
-    id="skip-to-content"
-    href="#main-content"
-    class="absolute -top-full left-17 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4"
-    >Skip to content</a
-  >
   <div
-    class="mx-auto flex max-w-3xl flex-col items-center justify-between sm:flex-row"
+    class="relative flex max-w-3xl mx-auto items-start justify-between p-4 sm:items-center sm:py-8"
   >
-    <div
-      class="relative flex w-full items-start justify-between p-4 sm:items-center sm:py-8"
+    <a
+      href="/"
+      class="absolute font-semibold sm:static flex flex-col text-xl sm:text-2xl whitespace-nowrap"
     >
-      <a
-        href="/"
-        class="absolute font-semibold sm:static flex flex-col text-xl sm:text-2xl whitespace-nowrap"
-      >
-        {
-          LOGO_IMAGE.enable ? (
-            <img
-              src={`/assets/${LOGO_IMAGE.svg ? "logo.svg" : "logo.png"}`}
-              alt={SITE.title}
-              width={LOGO_IMAGE.width}
-              height={LOGO_IMAGE.height}
-            />
-          ) : (
-            SITE.title
-          )
-        }
-        <span class="text-sm text-skin-accent">By {SITE.author}</span>
-      </a>
-      <NavMenu />
-    </div>
+      {
+        LOGO_IMAGE.enable ? (
+          <img
+            src={`/assets/${LOGO_IMAGE.svg ? "logo.svg" : "logo.png"}`}
+            alt={SITE.title}
+            width={LOGO_IMAGE.width}
+            height={LOGO_IMAGE.height}
+          />
+        ) : (
+          SITE.title
+        )
+      }
+      <span class="text-sm text-accent">By {SITE.author}</span>
+    </a>
+    <NavMenu />
   </div>
   <Hr />
 </header>
