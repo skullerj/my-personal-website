@@ -1,0 +1,38 @@
+---
+import Header from "@components/Header/Header.astro";
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout>
+  <Header />
+  <main class="w-3xl mx-auto px-4 py-3 flex flex-col gap-4">
+    <div class="flex justify-between items-end">
+      <h1 class="text-5xl font-bold">About Me</h1>
+      <!-- Professional mode switch incomming  -->
+      <!-- <span class="text-base font-medium">
+        Professional mode <span class="underline">On</span> / Off
+      </span> -->
+    </div>
+    <div class="flex flex-col gap-4">
+      <h3 class="text-lg text-accent font-bold">Who am I?</h3>
+      <p class="text-justify">
+        Well... I’m Juan... the Juan and only haha. <br /> I’m an Ecuadorian Front
+        End / Full Stack Developer who lives in London. I made my first website back
+        on 2016 for a friend, who got me a freelance job. Almost 8 years from then,
+        I do this for a living. I like programming and design in general. I’m trying
+        to impress you right now using those skills, you my dear reader, and in fact,
+        also trying to get a little giggle out of you as well.
+      </p>
+    </div>
+    <div class="flex flex-col gap-4">
+      <h3 class="text-lg text-accent font-bold">Friendly by Nature</h3>
+      <p class="text-justify">
+        You know those grumpy faces that you get on the tube at 7:43am when
+        going to work? well, that’s not me. I like bringing a little sunshine to
+        the world, even when it’s grim. That’s what drives me and luckily I get
+        to bring that shine to people using websites sometimes, which is why I
+        love what I do.
+      </p>
+    </div>
+  </main>
+</Layout>
