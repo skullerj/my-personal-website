@@ -5,9 +5,6 @@ export const SITE: Site = {
   author: "Juan Rosero",
   desc: "El Bloc de Notas is a my personal blog. It's a place where I write about things I find interesting as a sofrtware developer and as a human being. I hope you find something useful here.",
   title: "El Bloc de Notas",
-  ogImage: "astropaper-og.jpg",
-  lightAndDarkMode: true,
-  postPerPage: 3,
 };
 
 export const LOCALE = ["en-EN"]; // set to [] to use the environment default
