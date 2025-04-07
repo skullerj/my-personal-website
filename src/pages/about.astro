@@ -1,6 +1,7 @@
 ---
 import Header from "@components/Header/Header.astro";
 import Layout from "@layouts/Layout.astro";
+import AboutMeCard from "@components/AboutMeCard";
 ---
 
 <Layout>
@@ -13,17 +14,7 @@ import Layout from "@layouts/Layout.astro";
         Professional mode <span class="underline">On</span> / Off
       </span> -->
     </div>
-    <div class="flex flex-col gap-4">
-      <h3 class="text-lg text-accent font-bold">Who am I?</h3>
-      <p class="text-justify">
-        Well... I’m Juan... the Juan and only haha. <br /> I’m an Ecuadorian Front
-        End / Full Stack Developer who lives in London. I made my first website back
-        on 2016 for a friend, who got me a freelance job. Almost 8 years from then,
-        I do this for a living. I like programming and design in general. I’m trying
-        to impress you right now using those skills, you my dear reader, and in fact,
-        also trying to get a little giggle out of you as well.
-      </p>
-    </div>
+    <AboutMeCard client:idle />
     <div class="flex flex-col gap-4">
       <h3 class="text-lg text-accent font-bold">Friendly by Nature</h3>
       <p class="text-justify">
