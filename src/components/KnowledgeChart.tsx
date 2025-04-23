@@ -24,7 +24,7 @@ export interface KnowledgeEntry {
   know: number;
   use: number;
   name: string;
-  description: string;
+  description: string | React.ReactNode;
   icon: string;
 }
 
@@ -56,8 +56,12 @@ const data: KnowledgeEntry[] = [
   {
     id: "react",
     name: "React",
-    description:
-      "Been working with this for 6 years. I use it daily and put a lot of effort in improving my skills with it",
+    description: (
+      <>
+        React is my main tool. In <strong>2018</strong> I dedicated a full week
+        learning it for a hackaton. Got 3rd place and landed a job after that.
+      </>
+    ),
     know: 10,
     use: 10,
     icon: ReactIcon.src,
@@ -65,8 +69,9 @@ const data: KnowledgeEntry[] = [
   {
     id: "css",
     name: "CSS",
-    description:
-      "I've tasted almost every flavor: Vanilla CSS, JSS, SASS, Tailwind. The one I've used the most is JSS and I'm getting better at Tailwind",
+    description: (
+      <>I can center a div, I swear. Vanilla CSS, SCSS, JSS, or Tailwind</>
+    ),
     know: 9,
     use: 7,
     icon: CSS.src,
@@ -74,7 +79,8 @@ const data: KnowledgeEntry[] = [
   {
     id: "html5",
     name: "HTML5",
-    description: "Markup language for the web",
+    description:
+      'I\'m on a quest to end numeric inputs with type other than "number"',
     know: 8,
     use: 8.5,
     icon: Html5.src,
@@ -82,7 +88,8 @@ const data: KnowledgeEntry[] = [
   {
     id: "typescript",
     name: "TypeScript",
-    description: "Typed superset of JavaScript",
+    description:
+      "I have a love hate relationship with this one. I've spen't too much time figuring out the right type for my methods. Once I get to the answer though (*chef kiss 👌)",
     know: 9,
     use: 10,
     icon: Typescript.src,
@@ -90,7 +97,8 @@ const data: KnowledgeEntry[] = [
   {
     id: "aws",
     name: "AWS",
-    description: "Cloud infrastructure and services",
+    description:
+      "From the cloud providers, this is the one I've used the most, hence, it's position in the chart. ",
     know: 4,
     use: 4,
     icon: AWS.src,
@@ -98,7 +106,8 @@ const data: KnowledgeEntry[] = [
   {
     id: "graphql",
     name: "GraphQL",
-    description: "API query language",
+    description:
+      "My current job demands heavy knowledge of this. I know which are it's strenghts and weaknesess.",
     know: 6,
     use: 7,
     icon: GraphQL.src,
@@ -106,7 +115,7 @@ const data: KnowledgeEntry[] = [
   {
     id: "jest",
     name: "Jest",
-    description: "JavaScript testing framework",
+    description: "Learned when TDD and BDD were buzzwords. Used ever since",
     know: 7,
     use: 6,
     icon: Jest.src,
@@ -114,7 +123,8 @@ const data: KnowledgeEntry[] = [
   {
     id: "mongodb",
     name: "MongoDB",
-    description: "NoSQL database",
+    description:
+      "This was my favourite DB back on 2017. I grew up my knowledge to understand that is not the right tool for every job. That was painful",
     know: 3,
     use: 2,
     icon: MongoDB.src,
@@ -122,7 +132,8 @@ const data: KnowledgeEntry[] = [
   {
     id: "nestjs",
     name: "NestJS",
-    description: "Node.js framework for server-side applications",
+    description:
+      "Dependency injection. Pretty cool concept I didn't appreciate enough when I started using this.",
     know: 5,
     use: 2,
     icon: NestJS.src,
@@ -130,7 +141,8 @@ const data: KnowledgeEntry[] = [
   {
     id: "nodejs",
     name: "NodeJS",
-    description: "JavaScript runtime for server-side development",
+    description:
+      "This is what kickstared everything. I wanted to create a web server for a friend and resources for NodeJS were relatively plentiful at the time. If anything, I am grateful for that.",
     know: 6,
     use: 9,
     icon: NodeJS.src,
@@ -138,7 +150,8 @@ const data: KnowledgeEntry[] = [
   {
     id: "postgresql",
     name: "PostgreSQL",
-    description: "Relational database management system",
+    description:
+      "I appreciate the how versatile this DB is. I've been using it since 2021, never regretted picking it.",
     know: 7,
     use: 8,
     icon: PosgreSQL.src,
@@ -146,7 +159,8 @@ const data: KnowledgeEntry[] = [
   {
     id: "storybook",
     name: "Storybook",
-    description: "UI component development and documentation tool",
+    description:
+      "I love how this tool allows you to collaborate with the design team. Show > tell, it always work.",
     know: 8,
     use: 5,
     icon: Storybook.src,
@@ -169,9 +183,15 @@ function KnowledgeChart({ width = "100%", height = 400 }: KnowledgeChartProps) {
           type="number"
           dataKey="know"
           name="knowledge"
-          label={{ value: "How much I know", position: "insideBottom" }}
+          label={{
+            value: "How much I know",
+            position: "insideBottom",
+            className: "fill-base",
+          }}
+          className="stroke-base"
           tick={false}
           axisLine={true}
+          stroke="var(--color-base)"
         />
         <YAxis
           type="number"
@@ -181,7 +201,9 @@ function KnowledgeChart({ width = "100%", height = 400 }: KnowledgeChartProps) {
             value: "How often do I use it",
             position: "center",
             angle: -90,
+            className: "fill-base",
           }}
+          stroke="var(--color-base)"
           tick={false}
           axisLine={true}
         />
@@ -192,11 +214,9 @@ function KnowledgeChart({ width = "100%", height = 400 }: KnowledgeChartProps) {
           // biome-ignore lint/suspicious/noExplicitAny: <explanation>
           shape={({ cx, cy, payload }: any) => (
             <image
-              x={cx - bubbleSize / 2}
-              y={cy - bubbleSize / 2}
-              width={bubbleSize}
-              height={bubbleSize}
-              className="cursor-pointer"
+              x={cx}
+              y={cy}
+              className="cursor-pointer h-10 hover:h-12 -translate-5 hover:-translate-6"
               href={payload.icon}
             />
           )}
