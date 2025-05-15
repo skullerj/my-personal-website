@@ -74,6 +74,18 @@
     overflow-y: scroll;
   }
 
+  h1 {
+    @apply text-5xl font-bold;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold;
+  }
+
+  h3 {
+    @apply text-lg font-bold;
+  }
+
   /* width */
   ::-webkit-scrollbar {
     @apply w-3;
