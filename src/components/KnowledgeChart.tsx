@@ -43,7 +43,7 @@ function CustomTooltip({ active, payload }: CustomTooltipProps) {
   if (active && payload && payload.length) {
     const item = payload[0].payload;
     return (
-      <div className="bg-card p-2.5 border border-skin-line rounded shadow-md max-w-sm">
+      <div className="bg-card p-2.5 border border-skin-line rounded shadow-md w-[80vw] max-w-sm">
         <h3>{item.name}</h3>
         <p>{item.description}</p>
       </div>
@@ -166,7 +166,6 @@ const data: KnowledgeEntry[] = [
     icon: Storybook.src,
   },
 ];
-const bubbleSize = 40;
 
 function KnowledgeChart({ width = "100%", height = 400 }: KnowledgeChartProps) {
   return (

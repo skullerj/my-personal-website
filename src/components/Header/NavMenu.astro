@@ -1,6 +1,4 @@
 ---
-import HamburgerMenu from "./HamburgerMenu.astro";
-
 // Define navigation items
 const navItems = [{ href: "/about", label: "About", id: "about" }];
 
@@ -14,11 +12,7 @@ const currentPath = pathname.split("/")[1] || "home";
   class="flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"
   transition:persist
 >
-  <HamburgerMenu />
-  <ul
-    id="menu-items"
-    class="sm:flex mt-4 grid w-44 grid-cols-2 grid-rows-4 gap-x-2 gap-y-2 sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-5 sm:gap-y-0"
-  >
+  <ul id="menu-items" class="flex justify-end align-center w-full gap-1">
     {
       navItems.map((item) => (
         <li class="col-span-2 flex items-center justify-center">
@@ -34,7 +28,7 @@ const currentPath = pathname.split("/")[1] || "home";
         </li>
       ))
     }
-    <li class="col-span-2 flex items-center justify-center">
+    <li class="col-span-2 flex items-center justify-center" transition:persist>
       <button
         id="theme-btn"
         class="focus-outline p-3 sm:p-1 cursor-pointer"
@@ -72,15 +66,8 @@ const currentPath = pathname.split("/")[1] || "home";
 </style>
 
 <script>
-  import { isMobileNavOpen } from "./store";
-
   const menuItems = document.querySelector("#menu-items");
   const navLinks = document.querySelectorAll("a[data-navid]");
-
-  // Toggle mobile menu visibility
-  isMobileNavOpen.subscribe((value: boolean) => {
-    menuItems?.classList.toggle("hidden", !value);
-  });
 
   // Function to update active navigation based on URL
   function updateActiveNavigation() {
