@@ -11,6 +11,10 @@ This is Juan Rosero's personal website built with Astro and based on the AstroPa
 - `npm run dev` or `npm start` - Start development server
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
+- `npm run lint` - Check code with Biome linter
+- `npm run lint:fix` - Fix linting issues automatically
+- `npm run format` - Check code formatting with Biome
+- `npm run format:fix` - Fix formatting issues automatically
 
 ## Architecture
 
@@ -48,9 +52,9 @@ This is Juan Rosero's personal website built with Astro and based on the AstroPa
 ## Code Quality
 
 The project uses:
-- ESLint with Astro-specific rules
-- Prettier with Astro and Tailwind plugins
-- Lint-staged for pre-commit formatting
+- Biome for linting and formatting (supports .astro files)
+- Prettier with Astro and Tailwind plugins for markdown files
+- Lint-staged for pre-commit formatting and linting
 - Commitizen for conventional commits
 - Husky for git hooks
 

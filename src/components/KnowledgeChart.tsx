@@ -1,12 +1,11 @@
 import {
-  ScatterChart,
+  ResponsiveContainer,
   Scatter,
+  ScatterChart,
+  Tooltip,
   XAxis,
   YAxis,
-  Tooltip,
-  ResponsiveContainer,
 } from "recharts";
-import ReactIcon from "../assets/brand-icons/react.svg";
 import AWS from "../assets/brand-icons/amazonwebservices.svg";
 import CSS from "../assets/brand-icons/css.svg";
 import GraphQL from "../assets/brand-icons/graphql.svg";
@@ -16,6 +15,7 @@ import MongoDB from "../assets/brand-icons/mongodb.svg";
 import NestJS from "../assets/brand-icons/nestjs.svg";
 import NodeJS from "../assets/brand-icons/nodejs.svg";
 import PosgreSQL from "../assets/brand-icons/postgresql.svg";
+import ReactIcon from "../assets/brand-icons/react.svg";
 import Storybook from "../assets/brand-icons/storybook.svg";
 import Typescript from "../assets/brand-icons/typescript.svg";
 
