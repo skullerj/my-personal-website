@@ -23,6 +23,7 @@ This is Juan Rosero's personal website built with Astro and based on the AstroPa
 - **Styling**: Tailwind CSS 4.x with custom CSS variables for theming
 - **Content**: Astro Content Collections for blog posts
 - **Charts**: Recharts for data visualization (KnowledgeChart component)
+- **Animations**: GSAP 3.x for scroll-triggered animations (replacing motion library)
 - **Deployment**: Netlify (configured via netlify.toml)
 
 ### Project Structure
@@ -38,6 +39,7 @@ This is Juan Rosero's personal website built with Astro and based on the AstroPa
 - `Header/` - Navigation with hamburger menu and theme toggle
 - `Footer.astro` - Site footer
 - Content is managed through Astro's content collections with TypeScript schemas
+- `pages/poc.astro` - Barebones POC page for testing GSAP scroll animations with keyhole clip-path effect
 
 ### Theming
 - Uses CSS custom properties for theming
