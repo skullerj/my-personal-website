@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import mountains from "../assets/mountains.png";
+import { Image } from "astro:assets";
 // Barebones POC page for GSAP scroll animations
 ---
 
@@ -10,12 +12,6 @@ import "../styles/global.css";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GSAP Scroll Animation POC</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
       body {
         font-family:
           -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -35,12 +31,6 @@ import "../styles/global.css";
         backdrop-filter: blur(10px);
       }
 
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-      }
-
       .name {
         font-size: 1.2rem;
         font-weight: 600;
@@ -49,18 +39,14 @@ import "../styles/global.css";
     </style>
   </head>
   <body>
-    <span class="keyhole bg-blue-300"></span>
+    <span class="keyhole bg-[#fdf0d5]"></span>
     <header>
       <h1 class="name">Juan Rosero</h1>
     </header>
 
     <section class="hero">
       <figure class="hero-image-container">
-        <img
-          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-          alt="Hero background"
-          class="hero-image"
-        />
+        <Image src={mountains} alt="Hero background" class="hero-image" />
       </figure>
     </section>
 

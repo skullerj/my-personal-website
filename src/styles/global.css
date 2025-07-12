@@ -3,11 +3,17 @@
 
 @theme {
   --font-mono: "IBM Plex Mono", monospace;
+  --font-serif: "Times New Roman", serif;
 
   --color-base: var(--color-text-base);
   --color-accent: var(--color-accent);
   --color-fill: var(--color-fill);
   --color-card: var(--color-card);
+
+  /* New brand colors */
+  --color-cream: #fdf0d5;
+  --color-navy: #003049;
+  --color-blue: #669bbc;
 }
 
 @utility display-none {
@@ -21,44 +27,50 @@
 @layer base {
   :root,
   html {
-    --color-brand: #0484fc;
+    --color-brand: var(--color-navy);
   }
 
   html[data-theme="light"] {
-    --color-fill: oklch(from var(--color-brand) calc(l + 0.4) calc(c - 0.2) h);
-    --color-base: oklch(from var(--color-fill) calc(l - 0.7) c h);
-    --color-accent: var(--color-brand);
-    --color-card: oklch(from var(--color-fill) calc(l - 0.1) c h);
+    --color-fill: var(--color-cream);
+    --color-base: var(--color-navy);
+    --color-accent: var(--color-blue);
+    --color-card: #ffffff;
   }
 
   html[data-theme="dark"] {
-    --color-fill: oklch(from var(--color-brand) calc(l - 0.4) calc(c - 0.2) h);
-    --color-base: oklch(from var(--color-fill) calc(l + 0.7) c h);
-    --color-accent: var(--color-brand);
-    --color-card: oklch(from var(--color-fill) calc(l - 0.1) c h);
+    --color-fill: var(--color-navy);
+    --color-base: var(--color-cream);
+    --color-accent: var(--color-blue);
+    --color-card: rgba(255, 255, 255, 0.1);
   }
 
-  #sun-svg,
-  html[data-theme="dark"] #moon-svg {
-    display: none;
+  h1 {
+    font-size: 3rem;
+    font-weight: bold;
   }
-
-  #moon-svg,
-  html[data-theme="dark"] #sun-svg {
-    display: block;
+  h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
   }
-
+  h3 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
   body {
-    @apply flex min-h-[100svh] flex-col bg-fill font-mono text-base selection:bg-black/70;
+    font-size: 1.1rem;
+  }
+  caption {
+    font-size: 0.9rem;
+    color: var(--blue);
   }
 
   section,
   footer {
     @apply mx-auto max-w-3xl px-4;
-  }
-
-  a {
-    @apply outline-2 outline-offset-1 outline-fill focus-visible:no-underline focus-visible:outline-dashed;
   }
 
   svg {
@@ -72,18 +84,6 @@
   /* ===== scrollbar ===== */
   html {
     overflow-y: scroll;
-  }
-
-  h1 {
-    @apply text-5xl font-bold;
-  }
-
-  h2 {
-    @apply text-2xl font-semibold;
-  }
-
-  h3 {
-    @apply text-lg font-bold;
   }
 
   /* width */
