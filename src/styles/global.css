@@ -27,7 +27,7 @@
 @layer base {
   :root,
   html {
-    --color-brand: var(--color-navy);
+    @apply font-serif;
   }
 
   html[data-theme="light"] {
@@ -46,6 +46,7 @@
 
   h1 {
     font-size: 3rem;
+    letter-spacing: -0.02em;
     font-weight: bold;
   }
   h2 {
@@ -62,6 +63,8 @@
   }
   body {
     font-size: 1.1rem;
+    background-color: var(--color-fill);
+    color: var(--color-base);
   }
   caption {
     font-size: 0.9rem;

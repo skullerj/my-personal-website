@@ -1,56 +1,141 @@
 ---
 import { Image } from "astro:assets";
-import Footer from "@components/Footer.astro";
-import Header from "@components/Header/Header.astro";
 import LinkButton from "@components/LinkButton.astro";
 import Layout from "@layouts/Layout.astro";
 import profilePic from "../assets/me.png";
+import mountains from "@assets/mountains.png";
 ---
 
+<style>
+  body {
+    --header-height: 60px;
+  }
+  .keyhole-image {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    clip-path: polygon(
+      0% 0,
+      0% 100%,
+      0 100%,
+      0 var(--header-height),
+      100% var(--header-height),
+      100% 100%,
+      0 100%,
+      0 100%,
+      100% 100%,
+      100% 0%
+    );
+    z-index: -1;
+  }
+</style>
 <Layout>
-  <Header />
-  <main id="main-content container">
-    <section id="hero" class="py-6">
-      <div
-        class="flex items-center justify-start gap-4 sm:gap-6 mb-6 sm:justify-center"
-      >
-        <h1
-          class="my-3 text-5xl font-bold sm:mt-4 sm:my-2 sm:mb-3 sm:text-5xl sm:text-center mr-2"
-        >
-          Hello!
-        </h1>
-        <Image
-          src={profilePic}
-          alt="Profile picture"
-          class="rounded-full w-24 h-24 object-cover border-2 border-accent sm:w-24 sm:h-24"
-        />
-      </div>
-      <h2 class="text-xl">Welcome to El Bloc de Notas!</h2>
-      <p class="my-2">
-        I use this space as a sandbox for things I find interesting and want to
-        share, as well as an entrypoint for people that want to get in touch. I
-        hope you find something useful here.
+  <header class="fixed z-2 h-[var(--header-height)] w-full">
+    <h1 class="text-2xl p-3 text-fill">Juan Rosero</h1>
+  </header>
+  <Image
+    src={mountains}
+    alt="Ecuadorian mountains with a light fog w-full"
+    class="keyhole-image object-cover"
+    id="mountains-image"
+  />
+  <main id="main-content" class="relative">
+    <section
+      class="h-screen flex items-center justify-center max-w-[50vw] text-center"
+    >
+      <h1>Hello From the Mountains!</h1>
+    </section>
+    <section>
+      <h2>Based in London</h2>
+      <p>I've been living here since 2024</p>
+      <h2>Web Developer</h2>
+      <p>
+        My work title is Full Stack Developer, but I'm more of a geek for making
+        websites look cool
       </p>
-      <br />
-      <h2 class="text-xl">About me</h2>
-      <p class="my-2">
-        I'm Juan Rosero, a Front End developer from Ecuador living in London. I
-        like coding and lukily I make money doing it so that's good. If you want
-        to find more about me please visit my <LinkButton href="/about">
-          about
+      <h2>Likes computers, bycicles and joking arround</h2>
+      <p>
+        I'm a lucky guy, I get to ride my bike to work in a computer and joke
+        with my colleagues.
+      </p>
+    </section>
+    <section>
+      <h2>My Stack</h2>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>Node.js</li>
+      </ul>
+      <p>
+        I can learn things fast, I made this wesite using Astro, Tailwind and
+        GSAP. I'm always trying to learn new things.
+      </p>
+    </section>
+    <section>
+      <h2>My Experience</h2>
+      <p>I've been doing this since 2018</p>
+      <ul>
+        <li>2018 - 2020: Freelance Developer</li>
+        <li>2020 - Present: Full Stack Developer at XYZ Company</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Thanks for stopping by!</h1>
+      <p>
+        If you want to get in touch, please visit my <LinkButton
+          href="/contact"
+        >
+          contact
         </LinkButton> page.
-      </p>
-      <p class="my-2">
-        If you are interested in the code, you can find it
-        <LinkButton
-          className="hover:text-accent underline underline-offset-4 decoration-dashed"
-          href="https://github.com/satnaing/astro-paper#readme"
-        >
-          here.
-        </LinkButton>
       </p>
     </section>
   </main>
-
-  <Footer />
+  <!-- <p class="my-2">
+      I use this space as a sandbox for things I find interesting and want to
+      share, as well as an entrypoint for people that want to get in touch. I
+      hope you find something useful here.
+    </p>
+    <br />
+    <h2 class="text-xl">About me</h2>
+    <p class="my-2">
+      I'm Juan Rosero, a Front End developer from Ecuador living in London. I
+      like coding and lukily I make money doing it so that's good. If you want
+      to find more about me please visit my <LinkButton href="/about">
+        about
+      </LinkButton> page.
+    </p>
+    <p class="my-2">
+      If you are interested in the code, you can find it
+      <LinkButton
+        className="hover:text-accent underline underline-offset-4 decoration-dashed"
+        href="https://github.com/satnaing/astro-paper#readme"
+      >
+        here.
+      </LinkButton>
+    </p> -->
 </Layout>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const timeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: "body",
+      start: "top top",
+      end: "center center",
+      scrub: true,
+      markers: true,
+    },
+  });
+
+  timeline.from(".keyhole-image", {
+    "clip-path":
+      "polygon( 0% 0%, 0% 100%, 25% 100%, 25% 30%, 75% 30%, 75% 68%, 25% 68%, 25% 100%, 100% 100%, 100% 0%)",
+  });
+</script>
