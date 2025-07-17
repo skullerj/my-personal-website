@@ -14,6 +14,8 @@
   --color-cream: #fdf0d5;
   --color-navy: #003049;
   --color-blue: #669bbc;
+
+  --spacing: 0.25rem;
 }
 
 @utility display-none {
