@@ -8,31 +8,37 @@ import Button from "@components/Button.astro";
 ---
 
 <Layout>
-  <header class="fixed z-2 h-[var(--header-height)] w-full">
-    <h1 id="name" class="text-2xl p-3 text-fill">Juan Rosero</h1>
+  <header class="fixed z-2 h-[var(--header-height)] w-full overflow-hidden">
+    <h1 id="name" class="text-2xl py-3 px-4 text-fill">Juan Rosero</h1>
   </header>
   <main
     id="main-content"
     class="font-serif text-navy leading-relaxed overflow-x-hidden"
   >
-    <Image
-      src={mountains}
-      alt="Ecuadorian mountains with a light fog"
-      class="keyhole-image"
-      id="mountains-image"
-    />
     <section
       id="hero"
       class="relative h-screen p-0 flex items-center justify-center max-w-screen"
     >
-      <h1 class="max-w-[30vw] text-center">Hello from the mountains!</h1>
+      <Image
+        src={mountains}
+        alt="Ecuadorian mountains with a light fog"
+        class="fixed h-full w-full object-cover -z-1"
+        id="mountains-image"
+      />
+      <h1
+        class="text-center text-fill text- text-3xl max-w-[400px]"
+        style="text-shadow: 0 2px 3px var(--color-base)"
+        id="greetings"
+      >
+        Saludos desde <br /> las <br /> Montañas!
+      </h1>
     </section>
     <section
       class="bg-white/40 rounded-2xl p-10 mb-12 backdrop-blur-sm border border-white/20 shadow-lg shadow-navy/10 slide-in-right"
     >
       <div class="bg-white p-10 rounded-2xl shadow-lg shadow-navy/10">
         <h2 class="text-navy mb-6">
-          I'm <span class="highlight">{profile.personalInfo.name}</span>
+          Hello! I'm <span class="highlight">Juan</span>
         </h2>
         <p class="text-xl text-blue italic opacity-90 mb-4">
           {profile.personalInfo.title}
@@ -262,26 +268,6 @@ import Button from "@components/Button.astro";
     background: linear-gradient(135deg, var(--color-cream) 0%, #fae8c6 100%);
   }
 
-  .keyhole-image {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    pointer-events: none;
-    clip-path: polygon(
-      0% 0,
-      0% 100%,
-      0 100%,
-      0 64px,
-      100% 64px,
-      100% 100%,
-      0 100%,
-      0 100%,
-      100% 100%,
-      100% 0%
-    );
-    z-index: 1;
-  }
-
   .section-title::after {
     content: "";
     position: absolute;
@@ -315,15 +301,25 @@ import Button from "@components/Button.astro";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // Keyhole animation
-  gsap.from(".keyhole-image", {
-    "clip-path":
-      "polygon( 0% 0%, 0% 100%, 50% 100%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 100%, 100% 100%, 100% 0%)",
+  gsap.from("#greetings", {
+    translateY: "100%",
+    opacity: 0,
+    duration: 1,
     scrollTrigger: {
-      trigger: "#hero",
-      start: "1px top",
-      toggleActions: "play pause resume reverse",
+      trigger: "#greetings",
+      toggleActions: "play none none reset",
     },
+  });
+
+  gsap.matchMedia().add("(max-width:1130px)", () => {
+    gsap.to("header", {
+      backgroundColor: "var(--color-base)",
+      scrollTrigger: {
+        trigger: "#hero",
+        start: "top top",
+        scrub: true,
+      },
+    });
   });
 
   // Section title underline animation on scroll
