@@ -3,7 +3,8 @@
 
 @theme {
   --font-mono: "IBM Plex Mono", monospace;
-  --font-serif: "Times New Roman", serif;
+  --font-serif: "Fira Sans", serif;
+  --font-sans: "Fira Sans", monospace;
 
   --color-base: var(--color-text-base);
   --color-accent: var(--color-accent);
@@ -71,11 +72,6 @@
   caption {
     font-size: 0.9rem;
     color: var(--blue);
-  }
-
-  section,
-  footer {
-    @apply mx-auto max-w-3xl px-4;
   }
 
   svg {

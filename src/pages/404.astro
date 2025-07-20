@@ -7,8 +7,7 @@ import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout title={`404 Not Found | ${SITE.title}`}>
-  <Header />
-
+  <header class="p-4"><h4 class="text-navy">Juan Rosero</h4></header>
   <main
     id="main-content"
     class="mx-auto flex max-w-3xl flex-1 items-center justify-center"
@@ -19,14 +18,12 @@ import Layout from "@layouts/Layout.astro";
       </h1>
       <span aria-hidden="true">¯\_(ツ)_/¯</span>
       <p class="mt-4 text-2xl sm:text-3xl">Page Not Found</p>
-      <LinkButton
+      <a
         href="/"
         className="my-6 underline decoration-dashed underline-offset-8 text-lg"
       >
         Go back home
-      </LinkButton>
+      </a>
     </div>
   </main>
-
-  <Footer />
 </Layout>

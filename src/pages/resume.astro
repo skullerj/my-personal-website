@@ -1,0 +1,278 @@
+---
+import profileData from "@assets/profile.json";
+import Layout from "@layouts/Layout.astro";
+
+const {
+  personalInfo,
+  professionalSummary,
+  technicalSkills,
+  experience,
+  education,
+  continuousLearning,
+  languages,
+  keyStrengths,
+} = profileData;
+---
+
+<Layout
+  title="Juan Rosero - Resume"
+  description="Professional resume and CV of Juan Rosero, Senior Full Stack Developer & Squad Lead"
+>
+  <main
+    class="resume-container max-w-4xl mx-auto p-8 bg-white text-gray-900 font-sans leading-relaxed"
+  >
+    <!-- Header -->
+    <header class="text-center mb-8 border-b-2 border-gray-200 pb-6">
+      <h1 class="text-4xl font-bold text-gray-800 mb-2">{personalInfo.name}</h1>
+      <h2 class="text-xl text-gray-600 mb-4">{personalInfo.title}</h2>
+      <div class="flex justify-center space-x-6 text-sm text-gray-700">
+        <span>{personalInfo.location}</span>
+        <span>{personalInfo.email}</span>
+        <span>{personalInfo.phone}</span>
+      </div>
+    </header>
+
+    <!-- Professional Summary -->
+    <section class="mb-8">
+      <h3
+        class="text-2xl font-semibold text-gray-800 border-b border-gray-300 pb-2 mb-4"
+      >
+        Professional Summary
+      </h3>
+      <p class="text-gray-700 leading-relaxed">{professionalSummary}</p>
+    </section>
+
+    <!-- Experience -->
+    <section class="mb-8">
+      <h3
+        class="text-2xl font-semibold text-gray-800 border-b border-gray-300 pb-2 mb-4"
+      >
+        Professional Experience
+      </h3>
+      {
+        experience.map((job) => (
+          <div class="mb-6">
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <h4 class="text-lg font-semibold text-gray-800">
+                  {job.position}
+                </h4>
+                <p class="text-gray-600">
+                  {job.company} • {job.location}
+                </p>
+              </div>
+              <span class="text-sm text-gray-500 whitespace-nowrap">
+                {job.duration}
+              </span>
+            </div>
+            <p class="text-gray-700 mb-3">{job.description}</p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+              {job.achievements.map((achievement) => (
+                <li>{achievement}</li>
+              ))}
+            </ul>
+            <div class="mt-2">
+              <strong class="text-xs text-gray-600">Technologies:</strong>
+              <span class="text-xs text-gray-600">
+                {" "}
+                {job.technologies.join(", ")}
+              </span>
+            </div>
+          </div>
+        ))
+      }
+    </section>
+
+    <!-- Technical Skills -->
+    <section class="mb-8">
+      <h3
+        class="text-2xl font-semibold text-gray-800 border-b border-gray-300 pb-2 mb-4"
+      >
+        Technical Skills
+      </h3>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <h4 class="font-semibold text-gray-700 mb-2">Frontend Development</h4>
+          <p class="text-sm text-gray-600">
+            {technicalSkills.frontendDevelopment.join(", ")}
+          </p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-gray-700 mb-2">Backend Development</h4>
+          <p class="text-sm text-gray-600">
+            {technicalSkills.backendDevelopment.join(", ")}
+          </p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-gray-700 mb-2">Tools & Technologies</h4>
+          <p class="text-sm text-gray-600">
+            {technicalSkills.toolsAndTechnologies.join(", ")}
+          </p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-gray-700 mb-2">Leadership & Process</h4>
+          <p class="text-sm text-gray-600">
+            {technicalSkills.leadershipAndProcess.join(", ")}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="mb-8">
+      <h3
+        class="text-2xl font-semibold text-gray-800 border-b border-gray-300 pb-2 mb-4"
+      >
+        Education
+      </h3>
+      {
+        education.map((edu) => (
+          <div class="mb-4">
+            <div class="flex justify-between items-start">
+              <div>
+                <h4 class="font-semibold text-gray-800">{edu.degree}</h4>
+                <p class="text-gray-600">
+                  {edu.institution} • {edu.location}
+                </p>
+              </div>
+              <span class="text-sm text-gray-500">{edu.duration}</span>
+            </div>
+            <ul class="list-disc list-inside text-sm text-gray-700 mt-2">
+              {edu.details.map((detail) => (
+                <li>{detail}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </section>
+
+    <!-- Key Strengths -->
+    <section class="mb-8">
+      <h3
+        class="text-2xl font-semibold text-gray-800 border-b border-gray-300 pb-2 mb-4"
+      >
+        Key Strengths
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          keyStrengths.map((strength) => (
+            <div class="mb-3">
+              <h4 class="font-semibold text-gray-700">{strength.title}</h4>
+              <p class="text-sm text-gray-600">{strength.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Languages & Continuous Learning -->
+    <div class="grid grid-cols-2 gap-8 justify-start">
+      <section>
+        <h3
+          class="text-xl font-semibold text-gray-800 border-b border-gray-300 pb-2 mb-4"
+        >
+          Languages
+        </h3>
+        {
+          languages.map((lang) => (
+            <div class="flex justify-between text-sm text-gray-700 mb-1">
+              <span>{lang.language}</span>
+              <span>{lang.proficiency}</span>
+            </div>
+          ))
+        }
+      </section>
+
+      <section>
+        <h3
+          class="text-xl font-semibold text-gray-800 border-b border-gray-300 pb-2 mb-4"
+        >
+          Continuous Learning
+        </h3>
+        {
+          continuousLearning.map((course) => (
+            <div class="text-sm text-gray-700 mb-2">
+              <div class="font-medium">{course.course}</div>
+              <div class="text-gray-600">
+                {course.institution} • {course.completionDate}
+              </div>
+            </div>
+          ))
+        }
+      </section>
+    </div>
+  </main>
+
+  <style>
+    /* Base styling for clean PDF output */
+    .resume-container {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    @media print {
+      .resume-container {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        font-size: 12px;
+      }
+
+      body {
+        background: white !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        page-break-after: avoid;
+        color: #1f2937 !important;
+      }
+
+      ul,
+      ol {
+        page-break-inside: avoid;
+      }
+
+      /* Prevent page breaks within experience items */
+      .experience-item {
+        page-break-inside: avoid;
+        margin-bottom: 1rem;
+      }
+
+      /* Ensure borders and backgrounds print */
+      .border-b,
+      .border-b-2 {
+        border-color: #d1d5db !important;
+      }
+
+      /* Optimize text colors for PDF */
+      .text-gray-700 {
+        color: #374151 !important;
+      }
+
+      .text-gray-600 {
+        color: #4b5563 !important;
+      }
+
+      .text-gray-500 {
+        color: #6b7280 !important;
+      }
+    }
+
+    /* PDF-specific page setup */
+    @page {
+      margin: 0.75in;
+      size: A4;
+    }
+
+    /* Ensure proper spacing for PDF */
+    .section-break {
+      page-break-before: auto;
+    }
+  </style>
+</Layout>

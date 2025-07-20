@@ -1,10 +1,10 @@
 ---
 import { Image } from "astro:assets";
-import LinkButton from "@components/LinkButton.astro";
-import Layout from "@layouts/Layout.astro";
-import profile from "@assets/profile.json";
 import mountains from "@assets/mountains.png";
+import profile from "@assets/profile.json";
 import Button from "@components/Button.astro";
+import TranslucidSection from "@components/TranslucidSection.astro";
+import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout>
@@ -13,7 +13,7 @@ import Button from "@components/Button.astro";
   </header>
   <main
     id="main-content"
-    class="font-serif text-navy leading-relaxed overflow-x-hidden"
+    class="text-navy leading-relaxed flex flex-col gap-10"
   >
     <section
       id="hero"
@@ -33,9 +33,7 @@ import Button from "@components/Button.astro";
         Saludos desde <br /> las <br /> Montañas!
       </h1>
     </section>
-    <section
-      class="bg-white/40 rounded-2xl p-10 mb-12 backdrop-blur-sm border border-white/20 shadow-lg shadow-navy/10 slide-in-right"
-    >
+    <TranslucidSection>
       <div class="bg-white p-10 rounded-2xl shadow-lg shadow-navy/10">
         <h2 class="text-navy mb-6">
           Hello! I'm <span class="highlight">Juan</span>
@@ -57,11 +55,9 @@ import Button from "@components/Button.astro";
           </p>
         </div>
       </div>
-    </section>
+    </TranslucidSection>
 
-    <section
-      class="bg-white/40 rounded-2xl p-10 mb-12 backdrop-blur-sm border border-white/20 shadow-lg shadow-navy/10 slide-in-left"
-    >
+    <TranslucidSection>
       <h2 class="section-title text-navy mb-8 relative inline-block">
         Technical Skills
       </h2>
@@ -134,17 +130,15 @@ import Button from "@components/Button.astro";
           </div>
         </div>
       </div>
-    </section>
-    <section
-      class="bg-white/40 rounded-2xl p-10 mb-12 backdrop-blur-sm border border-white/20 shadow-lg shadow-navy/10 slide-in-right"
-    >
+    </TranslucidSection>
+    <TranslucidSection>
       <h2 class="section-title text-navy mb-8 relative inline-block">
         Professional Experience
       </h2>
       <div class="grid gap-8 mt-8">
         {
           profile.experience.map((job, index) => (
-            <div class="bg-white rounded-2xl p-8 shadow-lg shadow-navy/10 hover:-translate-y-1 hover:shadow-xl hover:shadow-navy/15 transition-all duration-300 scale-in">
+            <div class="bg-white rounded-2xl p-8 shadow-lg shadow-navy/10 hover:shadow-xl hover:shadow-navy/15">
               <div class="mb-6">
                 <h3 class="text-navy text-xl mb-2">{job.position}</h3>
                 <h4 class="text-blue text-lg mb-2">
@@ -154,7 +148,7 @@ import Button from "@components/Button.astro";
               </div>
               <p class="mb-6 leading-relaxed">{job.description}</p>
               <div class="mb-6">
-                <h5 class="text-navy mb-3 text-base">Key Achievements:</h5>
+                <h5 class="text-navy mb-3">Key Achievements:</h5>
                 <ul class="list-none p-0">
                   {job.achievements.map((achievement) => (
                     <li class="py-2 border-l-4 border-cream pl-4 mb-2 leading-relaxed">
@@ -164,7 +158,7 @@ import Button from "@components/Button.astro";
                 </ul>
               </div>
               <div>
-                <h5 class="text-navy mb-3 text-base">Technologies Used:</h5>
+                <h5 class="text-navy mb-3">Technologies Used:</h5>
                 <div class="flex flex-wrap gap-2">
                   {job.technologies.map((tech) => (
                     <span class="bg-blue text-white px-3 py-1 rounded-full text-sm font-medium">
@@ -177,29 +171,25 @@ import Button from "@components/Button.astro";
           ))
         }
       </div>
-    </section>
+    </TranslucidSection>
 
-    <section
-      class="bg-white/40 rounded-2xl p-10 mb-12 backdrop-blur-sm border border-white/20 shadow-lg shadow-navy/10 slide-in-left"
-    >
+    <TranslucidSection>
       <h2 class="section-title text-navy mb-8 relative inline-block">
         Key Strengths
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
         {
           profile.keyStrengths.map((strength, index) => (
-            <div class="bg-white rounded-2xl p-8 shadow-lg shadow-navy/10 hover:-translate-y-1 transition-transform duration-300">
+            <div class="bg-white rounded-2xl p-8 shadow-lg shadow-navy/10 transition-transform duration-300">
               <h3 class="text-navy mb-4 text-lg">{strength.title}</h3>
               <p class="leading-relaxed text-navy">{strength.description}</p>
             </div>
           ))
         }
       </div>
-    </section>
+    </TranslucidSection>
 
-    <section
-      class="bg-white/40 rounded-2xl p-10 mb-12 backdrop-blur-sm border border-white/20 shadow-lg shadow-navy/10 slide-in-right"
-    >
+    <TranslucidSection>
       <h2 class="section-title text-navy mb-8 relative inline-block">
         Education & Learning
       </h2>
@@ -244,10 +234,8 @@ import Button from "@components/Button.astro";
           </div>
         </div>
       </div>
-    </section>
-    <section
-      class="bg-white/40 rounded-2xl p-10 mb-12 backdrop-blur-sm border border-white/20 shadow-lg shadow-navy/10 slide-in-left"
-    >
+    </TranslucidSection>
+    <TranslucidSection class="mb-10">
       <div class="bg-white p-10 rounded-2xl shadow-lg shadow-navy/10">
         <h2 class="text-navy mb-6">Let's Connect!</h2>
         <p class="mb-6 leading-7">
@@ -255,11 +243,19 @@ import Button from "@components/Button.astro";
           on projects, or just having a chat about technology and development.
         </p>
         <div class="flex gap-6 flex-wrap mt-8">
-          <Button variant="primary">Get In Touch</Button>
-          <LinkButton href="/about">Learn More About Me</LinkButton>
+          <Button
+            variant="primary"
+            tag="a"
+            href={`mailto:${profile.personalInfo.email}`}
+          >
+            Get In Touch
+          </Button>
+          <Button tag="a" variant="secondary" href="/resume.pdf">
+            Get My Resume in PDF
+          </Button>
         </div>
       </div>
-    </section>
+    </TranslucidSection>
   </main>
 </Layout>
 

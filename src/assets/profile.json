@@ -1,12 +1,13 @@
 {
   "personalInfo": {
     "name": "Juan Rosero",
-    "title": "Senior Full Stack Developer & Squad Lead",
+    "title": "Senior Full Stack Developer",
     "location": "London, UK",
     "email": "juan@rosero.dev",
     "phone": "+44 7591 641684"
   },
   "professionalSummary": "I have 7+ years of experience building scalable web applications and leading development teams. Specialized in React, TypeScript, and GraphQL with a strong design mindset and proven track record of delivering user-focused solutions. Currently serving as Squad Lead at Engine AI, driving technical decisions and mentoring team members across complex feature implementations.",
+  "friendlyProfessionalSummary": "I",
   "technicalSkills": {
     "frontendDevelopment": [
       "React",
@@ -14,8 +15,6 @@
       "HTML5",
       "CSS3",
       "GraphQL",
-      "REST APIs",
-      "Component Libraries",
       "Storybook",
       "Responsive Design",
       "UI/UX"
@@ -26,8 +25,7 @@
       "PostgreSQL",
       "MongoDB",
       "MySQL",
-      "Database Design & Optimization",
-      "API Development"
+      "Python"
     ],
     "toolsAndTechnologies": [
       "Git",
