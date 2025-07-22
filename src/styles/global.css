@@ -17,6 +17,7 @@
   --color-blue: #669bbc;
 
   --spacing: 0.25rem;
+  --breakpoint-lg: 1200px;
 }
 
 @utility display-none {

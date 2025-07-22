@@ -8,59 +8,60 @@
   },
   "professionalSummary": "I have 7+ years of experience building scalable web applications and leading development teams. Specialized in React, TypeScript, and GraphQL with a strong design mindset and proven track record of delivering user-focused solutions. Currently serving as Squad Lead at Engine AI, driving technical decisions and mentoring team members across complex feature implementations.",
   "friendlyProfessionalSummary": "I",
-  "technicalSkills": {
-    "frontendDevelopment": [
-      "React",
-      "TypeScript",
-      "HTML5",
-      "CSS3",
-      "GraphQL",
-      "Storybook",
-      "Responsive Design",
-      "UI/UX"
-    ],
-    "backendDevelopment": [
-      "Node.js",
-      "NestJS",
-      "PostgreSQL",
-      "MongoDB",
-      "MySQL",
-      "Python"
-    ],
-    "toolsAndTechnologies": [
-      "Git",
-      "GitHub Actions",
-      "Docker",
-      "Azure",
-      "AWS",
-      "Firebase",
-      "Cypress",
-      "Jest",
-      "Testing Library",
-      "Webpack",
-      "Vite"
-    ],
-    "leadershipAndProcess": [
-      "Team Leadership & Mentoring",
-      "Agile/Scrum Methodologies",
-      "Architecture & Technical Strategy",
-      "Product Strategy & Planning"
-    ]
-  },
+  "technicalSkills": [
+    {
+      "label": "Frontend Development",
+      "entries": ["React", "TypeScript", "HTML5", "CSS3", "GraphQL", "Astro"]
+    },
+    {
+      "label": "Backend Development",
+      "entries": [
+        "Node.js",
+        "NestJS",
+        "PostgreSQL",
+        "MongoDB",
+        "MySQL",
+        "Elasticsearch"
+      ]
+    },
+    {
+      "label": "Tools and Technologies",
+      "entries": [
+        "Git",
+        "Docker",
+        "Azure",
+        "AWS",
+        "Firebase",
+        "Jest",
+        "Vite",
+        "Storybook"
+      ]
+    }
+  ],
   "experience": [
     {
       "company": "Engine AI",
       "location": "London",
       "position": "Senior Full Stack Developer & Squad Lead",
       "duration": "September 2020 - Present",
-      "description": "Leading development team while contributing to a data insights platform serving finance sector clients.",
+      "description": "Demonstrated rapid career progression from Junior Developer to Squad Lead over 4+ years at a data insights startup specializing in visualization platforms. Led the development of core platform architecture using React, TypeScript, PostgreSQL, and GraphQL, enabling clients to transform data into actionable insights. Built essential product features that drove significant business value through client customization capabilities and rapid prototyping for new AI solutions. Managed a development squad while maintaining hands-on technical contributions across full-stack feature delivery.",
       "achievements": [
-        "Team Leadership: Manage and mentor development team, conducting code reviews and driving technical decisions across end-to-end feature implementations",
-        "Technical Architecture: Designed and implemented the first version of the PostgreSQL database for widget and dashboard data, supporting scalable data visualizations",
-        "Frontend Innovation: Created a flexible theming system enabling platform customization for client brand requirements, directly contributing to new sales opportunities",
-        "Product Development: Built the UI for the company's first Chat Assistant and integrated it with existing data visualization widgets",
-        "DevOps & Testing: Developed and maintain the Product Testing website with Docker and Azure services, enabling developers to preview and debug AI Agent responses",
-        "Client Success: Created multiple custom platform versions for high-stakes demos, directly supporting business development efforts"
+        [
+          "Architected foundational systems",
+          "Designed and implemented the initial PostgreSQL database schema for widget and dashboard data storage, plus GraphQL configurations for React-based data visualization components used across the platform."
+        ],
+        [
+          "Enabled client presentation flexibility",
+          "Developed comprehensive theming system allowing our platform to adapt to client brand requirements, essential for enterprise sales and seamless client onboarding processes."
+        ],
+        [
+          "Drove rapid prototyping initiatives",
+          "Provided quick UI prototyping capabilities for new AI solutions, enabling the team to \"show not tell\" when exploring product directions and validating concepts with stakeholders"
+        ],
+        [
+          "Delivered high-impact tooling",
+          "Created and maintain the Product Testing platform for AI agent debugging, plus multiple custom platform versions for high-stakes demos that showcased company capabilities to potential enterprise clients"
+        ]
       ],
       "technologies": [
         "React",
@@ -76,11 +77,20 @@
       "location": "Quito",
       "position": "Full Stack Developer",
       "duration": "July 2020 - September 2020",
-      "description": "Delivered technical solutions for major Ecuadorian brands including General Motors and Multicines.",
+      "description": "Worked as a Full Stack Developer for a leading marketing company in Ecuador, providing technical solutions for major brands including General Motors and Multicines. Developed custom platforms using a diverse tech stack including React, MySQL, PostgreSQL, NodeJS with NestJS, and Elasticsearch. Focused on creating scalable solutions that could handle thousands of users while meeting specific client performance requirements. Left the position to pursue the opportunity to move to Portugal with Engine AI.",
       "achievements": [
-        "Email Marketing Platform: Built a comprehensive email management system for Multicines cinema chain, enabling targeted campaigns to thousands of users with performance-optimized data retrieval",
-        "Lead Management System: Migrated General Motors' PHP backend to Node.js, redesigned React frontend, and implemented Elasticsearch for improved search functionality",
-        "Performance Optimization: Implemented efficient data pulling strategies to handle large-scale user data while maintaining system performance"
+        [
+          "Built email marketing platform for Multicines",
+          "Created a comprehensive platform allowing the team to build, target, and schedule email campaigns to thousands of users, with custom data pulling solutions to handle performance constraints from client endpoints."
+        ],
+        [
+          "Modernized General Motors lead management system",
+          "Led the migration from legacy PHP backend to NodeJS while revamping the React client, significantly improving system performance and maintainability for their sales process."
+        ],
+        [
+          "Enhanced lead tracking capabilities:",
+          "Integrated Elasticsearch to improve data findability and implemented new features to closely monitor lead progression, providing better insights for the sales team."
+        ]
       ],
       "technologies": [
         "React",
@@ -95,11 +105,20 @@
       "location": "Quito",
       "position": "Frontend Developer",
       "duration": "September 2018 - December 2019",
-      "description": "Developed internal platforms for a software development outsourcing company.",
+      "description": "Started as part of Jobsity's competitive JSchool program, which I accessed through a hackathon and completed with merits, leading to a full-time Front End Developer position. Worked for a software development near-shoring startup that connects Latin American talent with US clients. Focused on React development and component library architecture for internal and external platforms. Left the position in preparation for the planned move to Portugal with Engine AI in early 2020.",
       "achievements": [
-        "Component Library: Created and maintained React component library using Storybook, serving as foundation for internal and external platforms",
-        "Platform Development: Built customer-employee management platform with React frontend and NestJS backend",
-        "Career Development: Completed JSchool program with merit, progressing from bootcamp participant to full-time developer"
+        [
+          "Developed foundational component library",
+          "Built the React component library used across internal and eventually external platforms, establishing design system standards and reusable UI components using Storybook for documentation and testing."
+        ],
+        [
+          "Built customer-employee management platform",
+          "Created the React frontend for the internal platform managing customer-employee relationships, working on a greenfield project that allowed for modern development practices and architecture decisions."
+        ],
+        [
+          "Contributed to backend development",
+          "Developed backend functionality using NestJS to support the customer-employee management platform, gaining full-stack experience in a Node.js environment."
+        ]
       ],
       "technologies": ["React", "Storybook", "NestJS", "TypeScript"]
     },
@@ -108,13 +127,24 @@
       "location": "Quito",
       "position": "Full Stack Developer",
       "duration": "June 2016 - March 2018",
-      "description": "Co-founded and developed a complete property listing platform from concept to launch.",
+      "description": "Worked as a Full Stack Developer for a property listing platform while still in university, after being approached based on academic performance to develop the complete website from scratch. Collaborated with a colleague to design and build the entire platform over the course of a year, gaining foundational experience in full-stack development and business requirements. Successfully launched the platform in 2017 and continued supporting it through 2020 when the business was discontinued by the owners.",
       "achievements": [
-        "Database Design: Architected MongoDB database model adaptable to changing requirements in an unexplored market",
-        "Design System: Implemented Material UI-based design system using Polymer components",
-        "Payment Integration: Integrated PayPal and custom bank transfer solutions with automated receipt generation for tax compliance",
-        "SEO Optimization: Developed server-side rendering solution for single-page application to improve search engine visibility",
-        "DevOps: Established deployment pipeline using Heroku, successfully launching platform in 2017"
+        [
+          "Designed scalable database architecture",
+          "reated the MongoDB database model from scratch, ensuring adaptability to changing requirements in the unexplored territory of Ecuador's online property market."
+        ],
+        [
+          "Built comprehensive design system",
+          "Developed the platform's design system based on emerging Material UI guidelines, implementing UI components using Polymer to achieve Material UI compliance out of the box."
+        ],
+        [
+          "Integrated payment and compliance systems",
+          "Implemented PayPal integration and custom semi-automated bank transfer methods, plus automated receipt generation to meet Ecuadorian tax system requirements."
+        ],
+        [
+          "Solved SEO challenges for SPA",
+          "Developed a custom mini-server solution to make listings discoverable by search engines despite the single-page application architecture, ensuring organic traffic growth for the platform."
+        ]
       ],
       "technologies": ["MongoDB", "Polymer", "Node.js", "Material UI", "Heroku"]
     }
@@ -155,7 +185,7 @@
   ],
   "keyStrengths": [
     {
-      "title": "Technical Leadership",
+      "title": "Technical leadership",
       "description": "Proven ability to lead development teams while maintaining hands-on technical contribution and code quality standards."
     },
     {
