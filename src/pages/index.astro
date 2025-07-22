@@ -1,56 +1,344 @@
 ---
 import { Image } from "astro:assets";
-import Footer from "@components/Footer.astro";
-import Header from "@components/Header/Header.astro";
-import LinkButton from "@components/LinkButton.astro";
+import mountains from "@assets/mountains.png";
+import profile from "@assets/profile.json";
+import Button from "@components/Button.astro";
+import TranslucidSection from "@components/TranslucidSection.astro";
 import Layout from "@layouts/Layout.astro";
-import profilePic from "../assets/me.png";
 ---
 
 <Layout>
-  <Header />
-  <main id="main-content container">
-    <section id="hero" class="py-6">
-      <div
-        class="flex items-center justify-start gap-4 sm:gap-6 mb-6 sm:justify-center"
+  <header class="fixed z-2 h-[var(--header-height)] w-full overflow-hidden">
+    <h1 id="name" class="text-2xl py-3 px-4 text-fill">Juan Rosero</h1>
+  </header>
+  <main
+    id="main-content"
+    class="text-navy leading-relaxed flex flex-col gap-10"
+  >
+    <section
+      id="hero"
+      class="relative h-screen p-0 flex items-center justify-center max-w-screen"
+    >
+      <Image
+        src={mountains}
+        alt="Ecuadorian mountains with a light fog"
+        class="fixed h-full w-full object-cover -z-1"
+        id="mountains-image"
+      />
+      <h1
+        class="text-center text-fill text- text-3xl max-w-[400px]"
+        style="text-shadow: 0 2px 3px var(--color-base)"
+        id="greetings"
       >
-        <h1
-          class="my-3 text-5xl font-bold sm:mt-4 sm:my-2 sm:mb-3 sm:text-5xl sm:text-center mr-2"
-        >
-          Hello!
-        </h1>
-        <Image
-          src={profilePic}
-          alt="Profile picture"
-          class="rounded-full w-24 h-24 object-cover border-2 border-accent sm:w-24 sm:h-24"
-        />
-      </div>
-      <h2 class="text-xl">Welcome to El Bloc de Notas!</h2>
-      <p class="my-2">
-        I use this space as a sandbox for things I find interesting and want to
-        share, as well as an entrypoint for people that want to get in touch. I
-        hope you find something useful here.
-      </p>
-      <br />
-      <h2 class="text-xl">About me</h2>
-      <p class="my-2">
-        I'm Juan Rosero, a Front End developer from Ecuador living in London. I
-        like coding and lukily I make money doing it so that's good. If you want
-        to find more about me please visit my <LinkButton href="/about">
-          about
-        </LinkButton> page.
-      </p>
-      <p class="my-2">
-        If you are interested in the code, you can find it
-        <LinkButton
-          className="hover:text-accent underline underline-offset-4 decoration-dashed"
-          href="https://github.com/satnaing/astro-paper#readme"
-        >
-          here.
-        </LinkButton>
-      </p>
+        Saludos desde <br /> las <br /> Montañas!
+      </h1>
     </section>
-  </main>
+    <TranslucidSection>
+      <div class="bg-white p-10 rounded-2xl shadow-lg shadow-navy/10">
+        <h2 class="text-navy mb-6">
+          Hello! I'm <span class="highlight">Juan</span>
+        </h2>
+        <p class="text-xl text-blue italic opacity-90 mb-4">
+          {profile.personalInfo.title}
+        </p>
+        <p class="mb-6 leading-7">
+          {profile.professionalSummary}
+        </p>
+        <div class="mt-8 pt-6 border-t border-blue/30">
+          <p class="mb-2 text-blue">
+            <strong>Location:</strong>
+            {profile.personalInfo.location}
+          </p>
+          <p class="mb-2 text-blue">
+            <strong>Email:</strong>
+            {profile.personalInfo.email}
+          </p>
+        </div>
+      </div>
+    </TranslucidSection>
 
-  <Footer />
+    <TranslucidSection>
+      <h2 class="section-title text-navy mb-8 relative inline-block">
+        Technical Skills
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        <div class="bg-white/60 p-6 rounded-xl border-l-4 border-blue">
+          <div
+            class="text-sm text-blue uppercase tracking-wide mb-4 font-semibold"
+          >
+            Frontend Development
+          </div>
+          <div class="flex flex-wrap gap-2">
+            {
+              profile.technicalSkills.frontendDevelopment.map((skill) => (
+                <span class="bg-cream text-navy px-3 py-1 rounded-full text-sm font-medium hover:-translate-y-0.5 transition-transform">
+                  {skill}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="bg-white/60 p-6 rounded-xl border-l-4 border-blue">
+          <div
+            class="text-sm text-blue uppercase tracking-wide mb-4 font-semibold"
+          >
+            Backend Development
+          </div>
+          <div class="flex flex-wrap gap-2">
+            {
+              profile.technicalSkills.backendDevelopment.map((skill) => (
+                <span class="bg-cream text-navy px-3 py-1 rounded-full text-sm font-medium hover:-translate-y-0.5 transition-transform">
+                  {skill}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="bg-white/60 p-6 rounded-xl border-l-4 border-blue">
+          <div
+            class="text-sm text-blue uppercase tracking-wide mb-4 font-semibold"
+          >
+            Tools & Technologies
+          </div>
+          <div class="flex flex-wrap gap-2">
+            {
+              profile.technicalSkills.toolsAndTechnologies.map((skill) => (
+                <span class="bg-cream text-navy px-3 py-1 rounded-full text-sm font-medium hover:-translate-y-0.5 transition-transform">
+                  {skill}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="bg-white/60 p-6 rounded-xl border-l-4 border-blue">
+          <div
+            class="text-sm text-blue uppercase tracking-wide mb-4 font-semibold"
+          >
+            Leadership & Process
+          </div>
+          <div class="flex flex-wrap gap-2">
+            {
+              profile.technicalSkills.leadershipAndProcess.map((skill) => (
+                <span class="bg-cream text-navy px-3 py-1 rounded-full text-sm font-medium hover:-translate-y-0.5 transition-transform">
+                  {skill}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </TranslucidSection>
+    <TranslucidSection>
+      <h2 class="section-title text-navy mb-8 relative inline-block">
+        Professional Experience
+      </h2>
+      <div class="grid gap-8 mt-8">
+        {
+          profile.experience.map((job, index) => (
+            <div class="bg-white rounded-2xl p-8 shadow-lg shadow-navy/10 hover:shadow-xl hover:shadow-navy/15">
+              <div class="mb-6">
+                <h3 class="text-navy text-xl mb-2">{job.position}</h3>
+                <h4 class="text-blue text-lg mb-2">
+                  {job.company} • {job.location}
+                </h4>
+                <p class="text-blue text-sm opacity-80">{job.duration}</p>
+              </div>
+              <p class="mb-6 leading-relaxed">{job.description}</p>
+              <div class="mb-6">
+                <h5 class="text-navy mb-3">Key Achievements:</h5>
+                <ul class="list-none p-0">
+                  {job.achievements.map((achievement) => (
+                    <li class="py-2 border-l-4 border-cream pl-4 mb-2 leading-relaxed">
+                      {achievement}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h5 class="text-navy mb-3">Technologies Used:</h5>
+                <div class="flex flex-wrap gap-2">
+                  {job.technologies.map((tech) => (
+                    <span class="bg-blue text-white px-3 py-1 rounded-full text-sm font-medium">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </TranslucidSection>
+
+    <TranslucidSection>
+      <h2 class="section-title text-navy mb-8 relative inline-block">
+        Key Strengths
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        {
+          profile.keyStrengths.map((strength, index) => (
+            <div class="bg-white rounded-2xl p-8 shadow-lg shadow-navy/10 transition-transform duration-300">
+              <h3 class="text-navy mb-4 text-lg">{strength.title}</h3>
+              <p class="leading-relaxed text-navy">{strength.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </TranslucidSection>
+
+    <TranslucidSection>
+      <h2 class="section-title text-navy mb-8 relative inline-block">
+        Education & Learning
+      </h2>
+      <div class="bg-white rounded-2xl p-8 shadow-lg shadow-navy/10">
+        <div class="mb-8 pb-8 border-b border-blue/20">
+          <h3 class="text-navy mb-2">{profile.education[0].degree}</h3>
+          <h4 class="text-blue mb-2">
+            {profile.education[0].institution} • {profile.education[0].location}
+          </h4>
+          <p class="text-blue text-sm opacity-80">
+            {profile.education[0].duration}
+          </p>
+          <ul class="list-disc ml-6 mt-4">
+            {profile.education[0].details.map((detail) => <li>{detail}</li>)}
+          </ul>
+        </div>
+
+        <div class="mb-8">
+          <h4 class="text-navy mb-4">Continuous Learning</h4>
+          {
+            profile.continuousLearning.map((course) => (
+              <div class="mb-4">
+                <h5 class="text-navy mb-1">{course.course}</h5>
+                <p class="text-blue text-sm">
+                  {course.institution} • {course.completionDate}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+
+        <div>
+          <h4 class="text-navy mb-4">Languages</h4>
+          <div class="flex flex-wrap gap-2">
+            {
+              profile.languages.map((lang) => (
+                <span class="bg-cream text-navy px-4 py-2 rounded-full text-sm font-medium">
+                  {lang.language} ({lang.proficiency})
+                </span>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </TranslucidSection>
+    <TranslucidSection class="mb-10">
+      <div class="bg-white p-10 rounded-2xl shadow-lg shadow-navy/10">
+        <h2 class="text-navy mb-6">Let's Connect!</h2>
+        <p class="mb-6 leading-7">
+          I'm always interested in discussing new opportunities, collaborating
+          on projects, or just having a chat about technology and development.
+        </p>
+        <div class="flex gap-6 flex-wrap mt-8">
+          <Button
+            variant="primary"
+            tag="a"
+            href={`mailto:${profile.personalInfo.email}`}
+          >
+            Get In Touch
+          </Button>
+          <Button tag="a" variant="secondary" href="/resume.pdf">
+            Get My Resume in PDF
+          </Button>
+        </div>
+      </div>
+    </TranslucidSection>
+  </main>
 </Layout>
+
+<style>
+  body {
+    background: linear-gradient(135deg, var(--color-cream) 0%, #fae8c6 100%);
+  }
+
+  .section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: var(--underline-width, 0);
+    height: 3px;
+    background: var(--color-blue);
+    transition: width 0.6s ease;
+  }
+
+  .highlight {
+    background: linear-gradient(
+      120deg,
+      var(--color-cream) 0%,
+      var(--color-cream) 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 0.3em;
+    background-position: 0 88%;
+    transition: background-size 0.25s ease-in;
+  }
+
+  .highlight:hover {
+    background-size: 100% 88%;
+  }
+</style>
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from("#greetings", {
+    translateY: "100%",
+    opacity: 0,
+    duration: 1,
+    scrollTrigger: {
+      trigger: "#greetings",
+      toggleActions: "play none none reset",
+    },
+  });
+
+  gsap.matchMedia().add("(max-width:1130px)", () => {
+    gsap.to("header", {
+      backgroundColor: "var(--color-base)",
+      scrollTrigger: {
+        trigger: "#hero",
+        start: "top top",
+        scrub: true,
+      },
+    });
+  });
+
+  // Section title underline animation on scroll
+  gsap.utils.toArray(".section-title").forEach((title) => {
+    gsap.to(title as HTMLElement, {
+      "--underline-width": "100%",
+      duration: 0.2,
+      scrollTrigger: {
+        trigger: title as HTMLElement,
+        start: "top 80%",
+        toggleActions: "play pause resume reset",
+      },
+    });
+  });
+
+  // Highlight animation
+  document.querySelectorAll(".highlight").forEach((element) => {
+    element.addEventListener("mouseenter", () => {
+      gsap.to(element, {
+        backgroundSize: "100% 88%",
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    });
+  });
+</script>

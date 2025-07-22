@@ -1,0 +1,178 @@
+{
+  "personalInfo": {
+    "name": "Juan Rosero",
+    "title": "Senior Full Stack Developer",
+    "location": "London, UK",
+    "email": "juan@rosero.dev",
+    "phone": "+44 7591 641684"
+  },
+  "professionalSummary": "I have 7+ years of experience building scalable web applications and leading development teams. Specialized in React, TypeScript, and GraphQL with a strong design mindset and proven track record of delivering user-focused solutions. Currently serving as Squad Lead at Engine AI, driving technical decisions and mentoring team members across complex feature implementations.",
+  "friendlyProfessionalSummary": "I",
+  "technicalSkills": {
+    "frontendDevelopment": [
+      "React",
+      "TypeScript",
+      "HTML5",
+      "CSS3",
+      "GraphQL",
+      "Storybook",
+      "Responsive Design",
+      "UI/UX"
+    ],
+    "backendDevelopment": [
+      "Node.js",
+      "NestJS",
+      "PostgreSQL",
+      "MongoDB",
+      "MySQL",
+      "Python"
+    ],
+    "toolsAndTechnologies": [
+      "Git",
+      "GitHub Actions",
+      "Docker",
+      "Azure",
+      "AWS",
+      "Firebase",
+      "Cypress",
+      "Jest",
+      "Testing Library",
+      "Webpack",
+      "Vite"
+    ],
+    "leadershipAndProcess": [
+      "Team Leadership & Mentoring",
+      "Agile/Scrum Methodologies",
+      "Architecture & Technical Strategy",
+      "Product Strategy & Planning"
+    ]
+  },
+  "experience": [
+    {
+      "company": "Engine AI",
+      "location": "London",
+      "position": "Senior Full Stack Developer & Squad Lead",
+      "duration": "September 2020 - Present",
+      "description": "Leading development team while contributing to a data insights platform serving finance sector clients.",
+      "achievements": [
+        "Team Leadership: Manage and mentor development team, conducting code reviews and driving technical decisions across end-to-end feature implementations",
+        "Technical Architecture: Designed and implemented the first version of the PostgreSQL database for widget and dashboard data, supporting scalable data visualizations",
+        "Frontend Innovation: Created a flexible theming system enabling platform customization for client brand requirements, directly contributing to new sales opportunities",
+        "Product Development: Built the UI for the company's first Chat Assistant and integrated it with existing data visualization widgets",
+        "DevOps & Testing: Developed and maintain the Product Testing website with Docker and Azure services, enabling developers to preview and debug AI Agent responses",
+        "Client Success: Created multiple custom platform versions for high-stakes demos, directly supporting business development efforts"
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "PostgreSQL",
+        "GraphQL",
+        "Docker",
+        "Azure"
+      ]
+    },
+    {
+      "company": "101 Grados",
+      "location": "Quito",
+      "position": "Full Stack Developer",
+      "duration": "July 2020 - September 2020",
+      "description": "Delivered technical solutions for major Ecuadorian brands including General Motors and Multicines.",
+      "achievements": [
+        "Email Marketing Platform: Built a comprehensive email management system for Multicines cinema chain, enabling targeted campaigns to thousands of users with performance-optimized data retrieval",
+        "Lead Management System: Migrated General Motors' PHP backend to Node.js, redesigned React frontend, and implemented Elasticsearch for improved search functionality",
+        "Performance Optimization: Implemented efficient data pulling strategies to handle large-scale user data while maintaining system performance"
+      ],
+      "technologies": [
+        "React",
+        "Node.js",
+        "NestJS",
+        "PostgreSQL",
+        "Elasticsearch"
+      ]
+    },
+    {
+      "company": "Jobsity",
+      "location": "Quito",
+      "position": "Frontend Developer",
+      "duration": "September 2018 - December 2019",
+      "description": "Developed internal platforms for a software development outsourcing company.",
+      "achievements": [
+        "Component Library: Created and maintained React component library using Storybook, serving as foundation for internal and external platforms",
+        "Platform Development: Built customer-employee management platform with React frontend and NestJS backend",
+        "Career Development: Completed JSchool program with merit, progressing from bootcamp participant to full-time developer"
+      ],
+      "technologies": ["React", "Storybook", "NestJS", "TypeScript"]
+    },
+    {
+      "company": "Ecuador House Rentals",
+      "location": "Quito",
+      "position": "Full Stack Developer",
+      "duration": "June 2016 - March 2018",
+      "description": "Co-founded and developed a complete property listing platform from concept to launch.",
+      "achievements": [
+        "Database Design: Architected MongoDB database model adaptable to changing requirements in an unexplored market",
+        "Design System: Implemented Material UI-based design system using Polymer components",
+        "Payment Integration: Integrated PayPal and custom bank transfer solutions with automated receipt generation for tax compliance",
+        "SEO Optimization: Developed server-side rendering solution for single-page application to improve search engine visibility",
+        "DevOps: Established deployment pipeline using Heroku, successfully launching platform in 2017"
+      ],
+      "technologies": ["MongoDB", "Polymer", "Node.js", "Material UI", "Heroku"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Universidad de las Américas",
+      "location": "Quito",
+      "degree": "Electronics and Telecommunications Engineering",
+      "duration": "July 2012 - February 2018",
+      "details": [
+        "Full merit scholarship awarded by the State",
+        "Thesis: Bottle image classification system using Convolutional Neural Networks",
+        "Equivalent to Masters in Computer Science (European standard)"
+      ]
+    }
+  ],
+  "continuousLearning": [
+    {
+      "course": "Design Thinking, the Ultimate Guide",
+      "institution": "Interaction Design Foundation",
+      "completionDate": "June 2023"
+    }
+  ],
+  "languages": [
+    {
+      "language": "Spanish",
+      "proficiency": "Native"
+    },
+    {
+      "language": "English",
+      "proficiency": "Advanced"
+    },
+    {
+      "language": "Portuguese",
+      "proficiency": "Mid-Advanced"
+    }
+  ],
+  "keyStrengths": [
+    {
+      "title": "Technical Leadership",
+      "description": "Proven ability to lead development teams while maintaining hands-on technical contribution and code quality standards."
+    },
+    {
+      "title": "Design-Focused Development",
+      "description": "Strong emphasis on user experience and visual design, ensuring technical solutions align with user needs and business objectives."
+    },
+    {
+      "title": "Cross-Cultural Communication",
+      "description": "Experience working across international teams and clients, with strong communication skills for technical and non-technical stakeholders."
+    },
+    {
+      "title": "Problem-Solving",
+      "description": "Solution-oriented approach to challenges, focusing on practical outcomes rather than obstacles."
+    },
+    {
+      "title": "Adaptability",
+      "description": "Successfully navigated multiple technology stacks and business domains, from marketing platforms to financial data insights."
+    }
+  ]
+}

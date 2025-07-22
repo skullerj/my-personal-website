@@ -1,10 +1,11 @@
 import type { Site, SocialObjects } from "./types";
+import profile from "./assets/profile.json";
 
 export const SITE: Site = {
   website: "https://astro-paper.pages.dev/", // replace this with your deployed domain
   author: "Juan Rosero",
-  desc: "El Bloc de Notas is a my personal blog. It's a place where I write about things I find interesting as a sofrtware developer and as a human being. I hope you find something useful here.",
-  title: "El Bloc de Notas",
+  desc: profile.professionalSummary,
+  title: "Juan Rosero",
 };
 
 export const LOCALE = ["en-EN"]; // set to [] to use the environment default
