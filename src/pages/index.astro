@@ -4,213 +4,196 @@ import mountains from "@assets/mountains.png";
 import profile from "@assets/profile.json";
 import Button from "@components/Button.astro";
 import TranslucidSection from "@components/TranslucidSection.astro";
+
 import Layout from "@layouts/Layout.astro";
 ---
 
-<Layout>
-  <Image
-    src={mountains}
-    alt="Ecuadorian mountains with a light fog"
-    class="fixed h-full w-full object-cover -z-1 top-0"
-    id="mountains-image"
-  />
-  <main
-    id="main-content"
-    class="text-navy leading-relaxed px-4 h-screen justify-items-center grid grid-cols-1 grid-rows-1 gap-4 lg:gap-y-0 lg:grid-cols-[minmax(var(--container-lg),1fr)_minmax(var(--container-2xl),2fr)] lg:grid-rows-[64px_1fr] [--header-height:calc(var(--spacing)*15)] overflow-auto"
+<Layout
+  class="flex flex-col md:grid md:[grid-template-areas:var(--md-areas)] md:grid-rows-(--md-rows) gap-4 md:p-4"
+>
+  <header
+    class="z-2 fixed top-0 left-0 bg-base w-full h-12 py-2 px-4 flex justify-between opacity-0"
   >
-    <header
-      class="z-2 sticky top-0 bg-transparent lg:relative max-w-3xl w-full text-center lg:text-left"
-    >
-      <TranslucidSection
-        class="p-2 rounded-t-none bg-navy/60 lg:bg-transparent"
-      >
-        <h3 id="name" class="text-2xl text-fill">Juan Rosero</h3>
-      </TranslucidSection>
-    </header>
-    <aside
-      class="flex flex-col gap-3 mt-[var(--header-height)] max-w-3xl lg:mt-0 lg:order-2"
-    >
-      <div class="bg-white p-4 rounded-xl">
-        <p class="text-lg text-blue italic opacity-90 mb-3">
-          {profile.personalInfo.title}
-        </p>
-        <p class="mb-4 leading-6 text-sm">
-          {profile.professionalSummary}
-        </p>
-        <div class="mt-4 pt-4 border-t border-blue/30">
-          <p class="mb-1 text-blue text-sm">
-            <strong>Location:</strong>
-            {profile.personalInfo.location}
-          </p>
-          <p class="mb-1 text-blue text-sm">
-            <strong>Email:</strong>
-            {profile.personalInfo.email}
-          </p>
-        </div>
-      </div>
-      <TranslucidSection>
-        <h4 class="section-title text-navy relative inline-block text-lg mb-4">
-          Technical Skills
-        </h4>
-        <div class="grid grid-cols-1 gap-4 mt-4">
-          {
-            profile.technicalSkills.map((skill) => (
-              <div class="bg-white/60 p-3 rounded-xl border-l-4 border-blue">
-                <div class="text-sm text-navy tracking-wide mb-2 font-semibold">
-                  {skill.label}
-                </div>
-                <div class="flex flex-wrap gap-1">
-                  {skill.entries.map((entry) => (
-                    <span class="bg-cream text-navy px-2 py-1 rounded-full text-xs font-medium ">
-                      {entry}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))
-          }
-        </div>
-      </TranslucidSection>
-    </aside>
-    <section
-      class="lg:overflow-y-auto flex flex-col gap-3 lg:pt-[var(--header-height)] lg:row-span-2 lg:order-1"
-    >
-      <TranslucidSection>
-        <h2 class="section-title text-navy mb-4 relative inline-block text-lg">
-          Professional Experience
-        </h2>
-        <div class="grid gap-4 mt-4">
-          {
-            profile.experience.map((job, index) => (
-              <div class="bg-white rounded-xl p-4">
-                <div class="mb-4">
-                  <h3 class="text-navy text-lg mb-1">{job.position}</h3>
-                  <h4 class="text-blue mb-1">
-                    {job.company} • {job.location}
-                  </h4>
-                  <p class="text-blue text-sm opacity-80">{job.duration}</p>
-                </div>
-                <p class="mb-4 leading-6 text-sm">{job.description}</p>
-                <div>
-                  <h5 class="text-navy mb-2 text-sm font-semibold">
-                    Technologies Used:
-                  </h5>
-                  <div class="flex flex-wrap gap-1">
-                    {job.technologies.map((tech) => (
-                      <span class="bg-blue text-white px-2 py-1 rounded-full text-xs font-medium">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))
-          }
-        </div>
-      </TranslucidSection>
-
-      <TranslucidSection>
-        <h2 class="section-title text-navy mb-4 relative inline-block text-lg">
-          Key Strengths
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
-          {
-            profile.keyStrengths.map((strength, index) => (
-              <div class="bg-white rounded-xl p-4">
-                <h3 class="text-navy mb-2 text-lg">{strength.title}</h3>
-                <p class="leading-6 text-navy text-sm">
-                  {strength.description}
-                </p>
-              </div>
-            ))
-          }
-        </div>
-      </TranslucidSection>
-      <TranslucidSection>
-        <h2 class="section-title text-navy mb-4 relative inline-block text-lg">
-          Education & Learning
-        </h2>
-        <div class="bg-white rounded-xl p-4">
-          <div class="mb-4 pb-4 border-b border-blue/20">
-            <h3 class="text-navy mb-1 text-xl">
-              {profile.education[0].degree}
-            </h3>
-            <h4 class="text-blue mb-1 text-sm">
-              {profile.education[0].institution} • {
-                profile.education[0].location
-              }
-            </h4>
-            <p class="text-blue text-xs opacity-80">
-              {profile.education[0].duration}
-            </p>
-            <ul class="list-disc ml-4 mt-2 text-sm">
-              {profile.education[0].details.map((detail) => <li>{detail}</li>)}
-            </ul>
-          </div>
-
-          <div class="mb-4">
-            <h4 class="text-navy mb-2 text-sm font-semibold">
-              Continuous Learning
-            </h4>
-            {
-              profile.continuousLearning.map((course) => (
-                <div class="mb-2">
-                  <h5 class="text-navy mb-0.5 text-sm">{course.course}</h5>
-                  <p class="text-blue text-xs">
-                    {course.institution} • {course.completionDate}
-                  </p>
-                </div>
-              ))
-            }
-          </div>
-
-          <div>
-            <h4 class="text-navy mb-2 text-sm font-semibold">Languages</h4>
+    <h3 id="name" class="text-xl text-fill">Juan Rosero</h3>
+    <h3 class="text-xl text-fill">Front End Engineer</h3>
+  </header>
+  <main
+    class="h-[40vh] relative flex flex-col justify-between p-3 [grid-area:main]"
+  >
+    <Image
+      src={mountains}
+      alt="Ecuadorian mountains with a light fog"
+      class="absolute h-full w-full object-cover -z-1 top-0 left-0"
+      id="mountains-image"
+    />
+    <h1 class="text-3xl text-fill">Hi! I'm Juan</h1>
+    <h2 class="text-xl text-fill">a Front End Engineer from the mountains</h2>
+  </main>
+  <section class="bg-white p-4 max-w-3xl rounded-xl [grid-area:summary]">
+    <p class="mb-4 leading-6 text-sm">
+      {profile.professionalSummary}
+    </p>
+    <div class="mt-4 pt-4 border-t border-blue/30">
+      <p class="mb-1 text-blue text-sm">
+        <strong>Location:</strong>
+        {profile.personalInfo.location}
+      </p>
+      <p class="mb-1 text-blue text-sm">
+        <strong>Email:</strong>
+        {profile.personalInfo.email}
+      </p>
+    </div>
+  </section>
+  <TranslucidSection class="[grid-area:skills]">
+    <h4 class="section-title text-navy relative inline-block text-lg mb-4">
+      Technical Skills
+    </h4>
+    <div class="grid grid-cols-1 gap-4 mt-4">
+      {
+        profile.technicalSkills.map((skill) => (
+          <div class="bg-white/60 p-3 rounded-xl border-l-4 border-blue">
+            <div class="text-sm text-navy tracking-wide mb-2 font-semibold">
+              {skill.label}
+            </div>
             <div class="flex flex-wrap gap-1">
-              {
-                profile.languages.map((lang) => (
-                  <span class="bg-cream text-navy px-2 py-1 rounded-full text-xs font-medium">
-                    {lang.language} ({lang.proficiency})
-                  </span>
-                ))
-              }
+              {skill.entries.map((entry) => (
+                <span class="bg-cream text-navy px-2 py-1 rounded-full text-xs font-medium ">
+                  {entry}
+                </span>
+              ))}
             </div>
           </div>
-        </div>
-      </TranslucidSection>
-      <div class="bg-white p-4 rounded-xl max-w-3xl">
-        <h2 class="section-title text-navy mb-3 text-lg">Get in Touch!</h2>
-        <p class="mb-4 leading-6 text-sm">
-          If you have any questions or would like to collaborate on a project,
-          please feel free to reach out to me via email.
+        ))
+      }
+    </div>
+  </TranslucidSection>
+  <TranslucidSection class="flex flex-col [grid-area:experience]">
+    <h2
+      class="section-title text-navy mb-4 relative inline-block self-start text-lg"
+    >
+      Professional Experience
+    </h2>
+    <div class="grid gap-4 mt-4 overflow-auto">
+      {
+        profile.experience.map((job, index) => (
+          <div class="bg-white rounded-xl p-4">
+            <div class="mb-4">
+              <h3 class="text-navy text-lg mb-1">{job.position}</h3>
+              <h4 class="text-blue mb-1">
+                {job.company} • {job.location}
+              </h4>
+              <p class="text-blue text-sm opacity-80">{job.duration}</p>
+            </div>
+            <p class="mb-4 leading-6 text-sm">{job.description}</p>
+            <div>
+              <h5 class="text-navy mb-2 text-sm font-semibold">
+                Technologies Used:
+              </h5>
+              <div class="flex flex-wrap gap-1">
+                {job.technologies.map((tech) => (
+                  <span class="bg-blue text-white px-2 py-1 rounded-full text-xs font-medium">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </TranslucidSection>
+  <TranslucidSection class="[grid-area:keys]">
+    <h2 class="section-title text-navy mb-4 relative inline-block text-lg">
+      Key Strengths
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+      {
+        profile.keyStrengths.map((strength, index) => (
+          <div class="bg-white rounded-xl p-4">
+            <h3 class="text-navy mb-2 text-lg">{strength.title}</h3>
+            <p class="leading-6 text-navy text-sm">{strength.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </TranslucidSection>
+  <TranslucidSection class="[grid-area:education]">
+    <h2 class="section-title text-navy mb-4 relative inline-block text-lg">
+      Education & Learning
+    </h2>
+    <div class="bg-white rounded-xl p-4">
+      <div class="mb-4 pb-4 border-b border-blue/20">
+        <h3 class="text-navy mb-1 text-xl">
+          {profile.education[0].degree}
+        </h3>
+        <h4 class="text-blue mb-1 text-sm">
+          {profile.education[0].institution} • {profile.education[0].location}
+        </h4>
+        <p class="text-blue text-xs opacity-80">
+          {profile.education[0].duration}
         </p>
-        <div class="flex gap-3 flex-wrap mt-4">
-          <Button
-            variant="primary"
-            href={`mailto:${profile.personalInfo.email}`}
-          >
-            Get In Touch
-          </Button>
-          <Button variant="secondary" href="/resume.pdf">
-            Get My Resume in PDF
-          </Button>
+        <ul class="list-disc ml-4 mt-2 text-sm">
+          {profile.education[0].details.map((detail) => <li>{detail}</li>)}
+        </ul>
+      </div>
+
+      <div class="mb-4">
+        <h4 class="text-navy mb-2 text-sm font-semibold">
+          Continuous Learning
+        </h4>
+        {
+          profile.continuousLearning.map((course) => (
+            <div class="mb-2">
+              <h5 class="text-navy mb-0.5 text-sm">{course.course}</h5>
+              <p class="text-blue text-xs">
+                {course.institution} • {course.completionDate}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div>
+        <h4 class="text-navy mb-2 text-sm font-semibold">Languages</h4>
+        <div class="flex flex-wrap gap-1">
+          {
+            profile.languages.map((lang) => (
+              <span class="bg-cream text-navy px-2 py-1 rounded-full text-xs font-medium">
+                {lang.language} ({lang.proficiency})
+              </span>
+            ))
+          }
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </TranslucidSection>
+  <section class="bg-white p-4 rounded-xl max-w-3xl [grid-area:contact]">
+    <h2 class="text-navy mb-3 text-lg">Get in Touch!</h2>
+    <p class="mb-4 leading-6 text-sm">
+      If you have any questions or would like to collaborate on a project,
+      please feel free to reach out to me via email.
+    </p>
+    <div class="flex gap-3 flex-wrap mt-4">
+      <Button variant="primary" href={`mailto:${profile.personalInfo.email}`}>
+        Get In Touch
+      </Button>
+      <Button variant="secondary" href="/resume.pdf">
+        Get My Resume in PDF
+      </Button>
+    </div>
+  </section>
 </Layout>
 
 <style>
   body {
-    display: flex;
-    flex-direction: column;
-    max-height: 100vh;
-  }
+    --md-rows: 40vh auto auto auto;
+    --md-areas: "main experience" "summary experience" "contact experience"
+      "skills experience" "keys experience" "keys education";
 
-  main {
-    grid-template-columns:;
+    --lg-rows: 40vh auto auto auto auto;
+    --lg-areas: "main experience" "summary experience" "contact experience"
+      "skills experience" "keys experience" "keys education";
   }
-
   .section-title::after {
     content: "";
     position: absolute;
@@ -243,6 +226,16 @@ import Layout from "@layouts/Layout.astro";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
 
   gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to("header", {
+    opacity: 1,
+    duration: 0.5,
+    scrollTrigger: {
+      trigger: "main",
+      start: "bottom top",
+      toggleActions: "play none reverse none",
+    },
+  });
 
   // Section title underline animation on scroll
   gsap.utils.toArray(".section-title").forEach((title) => {

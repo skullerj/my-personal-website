@@ -4,7 +4,9 @@
     "title": "Senior Full Stack Developer",
     "location": "London, UK",
     "email": "juan@rosero.dev",
-    "phone": "+44 7591 641684"
+    "phone": "+44 7591 641684",
+    "github": "https://github.com/skullerj",
+    "website": "https://juan.rosero.dev"
   },
   "professionalSummary": "I have 7+ years of experience building scalable web applications and leading development teams. Specialized in React, TypeScript, and GraphQL with a strong design mindset and proven track record of delivering user-focused solutions. Currently serving as Squad Lead at Engine AI, driving technical decisions and mentoring team members across complex feature implementations.",
   "friendlyProfessionalSummary": "I",
