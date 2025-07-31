@@ -11,6 +11,7 @@ export interface Props {
   description?: string;
   ogImage?: string;
   canonicalURL?: string;
+  class?: string;
 }
 
 const {
@@ -19,11 +20,12 @@ const {
   description = SITE.desc,
   ogImage = SITE.ogImage,
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+  class: layoutClass = "",
 } = Astro.props;
 
 const socialImageURL = new URL(
   ogImage ?? SITE.ogImage ?? "og.png",
-  Astro.url.origin,
+  Astro.url.origin
 ).href;
 ---
 
@@ -79,7 +81,7 @@ const socialImageURL = new URL(
 
     <ClientRouter />
   </head>
-  <body>
+  <body class={layoutClass}>
     <slot />
   </body>
 </html>

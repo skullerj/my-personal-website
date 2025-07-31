@@ -3,8 +3,7 @@
 
 @theme {
   --font-mono: "IBM Plex Mono", monospace;
-  --font-serif: "Fira Sans", serif;
-  --font-sans: "Fira Sans", monospace;
+  --font-sans: "Fira Sans", sans-serif;
 
   --color-base: var(--color-text-base);
   --color-accent: var(--color-accent);
@@ -30,9 +29,10 @@
 @layer base {
   :root,
   html {
-    @apply font-serif;
+    @apply font-sans;
   }
 
+  /* For now only the light theme will be available */
   html[data-theme="light"] {
     --color-fill: var(--color-cream);
     --color-base: var(--color-navy);
@@ -82,29 +82,32 @@
     @apply inline-block h-6 w-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:stroke-accent sm:scale-110;
   }
 
-  /* ===== scrollbar ===== */
-  html {
-    overflow-y: scroll;
-  }
-
   /* width */
   ::-webkit-scrollbar {
-    @apply w-3;
+    @apply w-2;
   }
 
   /* Track */
   ::-webkit-scrollbar-track {
-    @apply bg-fill;
+    background: transparent;
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    @apply bg-card;
+    @apply bg-navy/30;
   }
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: oklch(from var(--color-card) l c calc(h + 10deg));
+    @apply bg-navy/50;
+  }
+
+  /* Firefox scrollbar */
+  html,
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, var(--color-navy) 50%, transparent)
+      transparent;
   }
 
   code,
