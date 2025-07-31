@@ -9,7 +9,7 @@ import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout
-  class="flex flex-col md:grid md:[grid-template-areas:var(--md-areas)] md:grid-rows-(--md-rows) gap-4 md:p-4"
+  class="flex flex-col md:grid md:[grid-template-areas:var(--md-areas)] md:grid-rows-(--md-rows) 2xl:[grid-template-areas:var(--xl-areas)] 2xl:grid-rows-(--xl-rows) 2xl:grid-cols-(--xl-columns) 2xl:justify-center gap-4 md:p-4"
 >
   <header
     class="z-2 fixed top-0 left-0 bg-base w-full h-12 py-2 px-4 flex justify-between opacity-0"
@@ -18,7 +18,7 @@ import Layout from "@layouts/Layout.astro";
     <h3 class="text-xl text-fill">Front End Engineer</h3>
   </header>
   <main
-    class="h-[40vh] relative flex flex-col justify-between p-3 [grid-area:main]"
+    class="min-h-[40vh] relative flex flex-col justify-between p-3 [grid-area:main]"
   >
     <Image
       src={mountains}
@@ -102,7 +102,7 @@ import Layout from "@layouts/Layout.astro";
       }
     </div>
   </TranslucidSection>
-  <TranslucidSection class="[grid-area:keys]">
+  <TranslucidSection class="[grid-area:keys] 2xl:self-start">
     <h2 class="section-title text-navy mb-4 relative inline-block text-lg">
       Key Strengths
     </h2>
@@ -190,9 +190,11 @@ import Layout from "@layouts/Layout.astro";
     --md-areas: "main experience" "summary experience" "contact experience"
       "skills experience" "keys experience" "keys education";
 
-    --lg-rows: 40vh auto auto auto auto;
-    --lg-areas: "main experience" "summary experience" "contact experience"
-      "skills experience" "keys experience" "keys education";
+    --xl-rows: auto auto auto auto auto;
+    --xl-columns: 30rem minmax(0, 48rem) 30rem;
+    --xl-areas: "skills main experience" "education main experience"
+      "education summary experience" "keys contact experience"
+      "keys contact experience" "keys empty experience";
   }
   .section-title::after {
     content: "";
