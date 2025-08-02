@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is Juan Rosero's personal website built with Astro and based on the AstroPaper template. It features a blog architecture with React components for interactive elements. The site includes an "About" page with a custom KnowledgeChart component that visualizes technical skills using Recharts.
+This is Juan Rosero's personal website built with Astro. Originally inspired by the AstroPaper template, it has evolved into a custom resume/portfolio site. The site is primarily built with Astro components and uses GSAP for animations. React is included but currently unused.
 
 ## Development Commands
 
@@ -21,9 +21,9 @@ This is Juan Rosero's personal website built with Astro and based on the AstroPa
 ### Tech Stack
 - **Framework**: Astro 5.x with React integration
 - **Styling**: Tailwind CSS 4.x with custom CSS variables for theming
-- **Content**: Astro Content Collections for blog posts
-- **Charts**: Recharts for data visualization (KnowledgeChart component)
-- **Animations**: GSAP 3.x for scroll-triggered animations (replacing motion library)
+- **Content**: JSON-based profile data for resume content
+- **Animations**: GSAP 3.x for scroll-triggered animations
+- **Motion**: Motion library included but unused
 - **Deployment**: Netlify (configured via netlify.toml)
 
 ### Project Structure
@@ -35,11 +35,10 @@ This is Juan Rosero's personal website built with Astro and based on the AstroPa
 - `src/assets/` - Images and brand icons for the knowledge chart
 
 ### Key Components
-- `KnowledgeChart.tsx` - Interactive scatter chart showing technical skills with custom tooltips
-- `Header/` - Navigation with hamburger menu and theme toggle
-- `Footer.astro` - Site footer
-- Content is managed through Astro's content collections with TypeScript schemas
-- `pages/poc.astro` - Barebones POC page for testing GSAP scroll animations with keyhole clip-path effect
+- `Button.astro` - Reusable button component with variants
+- `TranslucidSection.astro` - Semi-transparent section wrapper
+- `Layout.astro` - Main layout with SEO meta tags and theme support
+- Content is managed through JSON profile data in `src/assets/profile.json`
 
 ### Theming
 - Uses CSS custom properties for theming
@@ -47,9 +46,9 @@ This is Juan Rosero's personal website built with Astro and based on the AstroPa
 - Dark/light mode support built into the layout
 
 ### Content Management
-- Blog posts are markdown files in `src/content/blog/`
-- Content schema enforces consistent frontmatter structure
-- OpenGraph image validation (min 1200x630px)
+- Resume/portfolio content stored in `src/assets/profile.json`
+- Professional summary, experience, skills, and education data
+- Brand icons for technical skills in `src/assets/brand-icons/`
 
 ## Code Quality
 
@@ -62,6 +61,7 @@ The project uses:
 
 ## Deployment
 
-- Configured for Netlify deployment
+- Configured for Netlify deployment via `netlify.toml`
 - Includes sitemap generation
-- RSS feed generation for blog posts
+- RSS feed generation
+- PDF resume generation capability
