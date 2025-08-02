@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import mountains from "@assets/mountains.png";
+import me from "@assets/me.png";
 import profile from "@assets/profile.json";
 import Button from "@components/Button.astro";
 import TranslucidSection from "@components/TranslucidSection.astro";
@@ -9,7 +10,7 @@ import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout
-  class="flex flex-col md:grid md:[grid-template-areas:var(--md-areas)] md:grid-rows-(--md-rows) 2xl:[grid-template-areas:var(--xl-areas)] 2xl:grid-rows-(--xl-rows) 2xl:grid-cols-(--xl-columns) 2xl:justify-center gap-4 md:p-4"
+  class="flex flex-col md:grid md:[grid-template-areas:var(--md-areas)] md:grid-rows-(--md-rows) 2xl:[grid-template-areas:var(--xl-areas)] 2xl:grid-rows-(--xl-rows) 2xl:grid-cols-(--xl-columns) 2xl:justify-center 2xl-flow-columns gap-4 md:p-4 items-start"
 >
   <header
     class="z-2 fixed top-0 left-0 bg-base w-full h-12 py-2 px-4 flex justify-between opacity-0"
@@ -18,7 +19,7 @@ import Layout from "@layouts/Layout.astro";
     <h3 class="text-xl text-fill">Front End Engineer</h3>
   </header>
   <main
-    class="min-h-[40vh] relative flex flex-col justify-between p-3 [grid-area:main]"
+    class="min-h-[64vh] md:min-h-[40vh] relative flex flex-col justify-between p-3 [grid-area:main] h-full"
   >
     <Image
       src={mountains}
@@ -30,18 +31,25 @@ import Layout from "@layouts/Layout.astro";
     <h2 class="text-xl text-fill">a Front End Engineer from the mountains</h2>
   </main>
   <section class="bg-white p-4 max-w-3xl rounded-xl [grid-area:summary]">
-    <p class="mb-4 leading-6 text-sm">
+    <p class="mb-4 leading-6 text-sm text-justify">
       {profile.professionalSummary}
     </p>
-    <div class="mt-4 pt-4 border-t border-blue/30">
-      <p class="mb-1 text-blue text-sm">
-        <strong>Location:</strong>
-        {profile.personalInfo.location}
-      </p>
-      <p class="mb-1 text-blue text-sm">
-        <strong>Email:</strong>
-        {profile.personalInfo.email}
-      </p>
+    <div class="mt-4 pt-4 border-t border-blue/30 flex items-start gap-4">
+      <Image
+        src={me}
+        alt="Juan Rosero's profile photo"
+        class="right-4 top-4 w-16 h-16 rounded-full object-cover"
+      />
+      <div>
+        <p class="mb-1 text-blue text-sm">
+          <strong>Location:</strong>
+          {profile.personalInfo.location}
+        </p>
+        <p class="mb-1 text-blue text-sm">
+          <strong>Email:</strong>
+          {profile.personalInfo.email}
+        </p>
+      </div>
     </div>
   </section>
   <TranslucidSection class="[grid-area:skills]">
@@ -190,11 +198,11 @@ import Layout from "@layouts/Layout.astro";
     --md-areas: "main experience" "summary experience" "contact experience"
       "skills experience" "keys experience" "keys education";
 
-    --xl-rows: auto auto auto auto auto;
+    --xl-rows: 352px 300px 250px 200px auto;
     --xl-columns: 30rem minmax(0, 48rem) 30rem;
-    --xl-areas: "skills main experience" "education main experience"
-      "education summary experience" "keys contact experience"
-      "keys contact experience" "keys empty experience";
+    --xl-areas: "skills main experience" "keys main experience"
+      "keys summary experience" "keys contact experience"
+      "education . experience" "education . experience";
   }
   .section-title::after {
     content: "";
