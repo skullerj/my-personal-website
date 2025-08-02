@@ -5,12 +5,13 @@ import me from "@assets/me.png";
 import profile from "@assets/profile.json";
 import Button from "@components/Button.astro";
 import TranslucidSection from "@components/TranslucidSection.astro";
+import ThemeToggle from "@components/ThemeToggle.astro";
 
 import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout
-  class="flex flex-col md:grid md:[grid-template-areas:var(--md-areas)] md:grid-rows-(--md-rows) 2xl:[grid-template-areas:var(--xl-areas)] 2xl:grid-rows-(--xl-rows) 2xl:grid-cols-(--xl-columns) 2xl:justify-center 2xl-flow-columns gap-4 md:p-4 items-start"
+  class="flex flex-col md:grid md:[grid-template-areas:var(--md-areas)] md:grid-rows-(--md-rows) 2xl:[grid-template-areas:var(--xl-areas)] 2xl:grid-rows-(--xl-rows) 2xl:grid-cols-(--xl-columns) 2xl:justify-center 2xl-flow-columns gap-4 md:p-4 2xl:items-start"
 >
   <header
     class="z-2 fixed top-0 left-0 bg-base w-full h-12 py-2 px-4 flex justify-between opacity-0"
@@ -27,25 +28,32 @@ import Layout from "@layouts/Layout.astro";
       class="absolute h-full w-full object-cover -z-1 top-0 left-0"
       id="mountains-image"
     />
-    <h1 class="text-3xl text-fill">Hi! I'm Juan</h1>
-    <h2 class="text-xl text-fill">a Front End Engineer from the mountains</h2>
+    <h1 class="text-3xl text-[var(--color-cream)]">Hi! I'm Juan</h1>
+    <h2 class="text-xl text-[var(--color-cream)]">
+      a Front End Engineer from the mountains
+    </h2>
   </main>
-  <section class="bg-white p-4 max-w-3xl rounded-xl [grid-area:summary]">
+  <section
+    class="bg-card p-4 max-w-3xl rounded-xl [grid-area:summary] relative"
+  >
+    <div class="absolute bottom-4 right-4">
+      <ThemeToggle />
+    </div>
     <p class="mb-4 leading-6 text-sm text-justify">
       {profile.professionalSummary}
     </p>
-    <div class="mt-4 pt-4 border-t border-blue/30 flex items-start gap-4">
+    <div class="mt-4 pt-4 border-t border-accent/30 flex items-start gap-4">
       <Image
         src={me}
         alt="Juan Rosero's profile photo"
         class="right-4 top-4 w-16 h-16 rounded-full object-cover"
       />
       <div>
-        <p class="mb-1 text-blue text-sm">
+        <p class="mb-1 text-accent text-sm">
           <strong>Location:</strong>
           {profile.personalInfo.location}
         </p>
-        <p class="mb-1 text-blue text-sm">
+        <p class="mb-1 text-accent text-sm">
           <strong>Email:</strong>
           {profile.personalInfo.email}
         </p>
@@ -53,19 +61,19 @@ import Layout from "@layouts/Layout.astro";
     </div>
   </section>
   <TranslucidSection class="[grid-area:skills]">
-    <h4 class="section-title text-navy relative inline-block text-lg mb-4">
+    <h4 class="section-title text-base relative inline-block text-lg mb-4">
       Technical Skills
     </h4>
     <div class="grid grid-cols-1 gap-4 mt-4">
       {
         profile.technicalSkills.map((skill) => (
-          <div class="bg-white/60 p-3 rounded-xl border-l-4 border-blue">
-            <div class="text-sm text-navy tracking-wide mb-2 font-semibold">
+          <div class="bg-card/60 p-3 rounded-xl border-l-4 border-accent">
+            <div class="text-sm text-base tracking-wide mb-2 font-semibold">
               {skill.label}
             </div>
             <div class="flex flex-wrap gap-1">
               {skill.entries.map((entry) => (
-                <span class="bg-cream text-navy px-2 py-1 rounded-full text-xs font-medium ">
+                <span class="bg-fill text-base px-2 py-1 rounded-full text-xs font-medium ">
                   {entry}
                 </span>
               ))}
@@ -77,29 +85,29 @@ import Layout from "@layouts/Layout.astro";
   </TranslucidSection>
   <TranslucidSection class="flex flex-col [grid-area:experience]">
     <h2
-      class="section-title text-navy mb-4 relative inline-block self-start text-lg"
+      class="section-title text-base mb-4 relative inline-block self-start text-lg"
     >
       Professional Experience
     </h2>
     <div class="grid gap-4 mt-4 overflow-auto">
       {
         profile.experience.map((job) => (
-          <div class="bg-white rounded-xl p-4">
+          <div class="bg-card rounded-xl p-4">
             <div class="mb-4">
-              <h3 class="text-navy text-lg mb-1">{job.position}</h3>
-              <h4 class="text-blue mb-1">
+              <h3 class="text-base text-lg mb-1">{job.position}</h3>
+              <h4 class="text-accent mb-1">
                 {job.company} • {job.location}
               </h4>
-              <p class="text-blue text-sm opacity-80">{job.duration}</p>
+              <p class="text-accent text-sm opacity-80">{job.duration}</p>
             </div>
             <p class="mb-4 leading-6 text-sm">{job.description}</p>
             <div>
-              <h5 class="text-navy mb-2 text-sm font-semibold">
+              <h5 class="text-base mb-2 text-sm font-semibold">
                 Technologies Used:
               </h5>
               <div class="flex flex-wrap gap-1">
                 {job.technologies.map((tech) => (
-                  <span class="bg-blue text-white px-2 py-1 rounded-full text-xs font-medium">
+                  <span class="bg-fill text-base px-2 py-1 rounded-full text-xs font-medium">
                     {tech}
                   </span>
                 ))}
@@ -111,33 +119,33 @@ import Layout from "@layouts/Layout.astro";
     </div>
   </TranslucidSection>
   <TranslucidSection class="[grid-area:keys] 2xl:self-start">
-    <h2 class="section-title text-navy mb-4 relative inline-block text-lg">
+    <h2 class="section-title text-base mb-4 relative inline-block text-lg">
       Key Strengths
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
       {
         profile.keyStrengths.map((strength) => (
-          <div class="bg-white rounded-xl p-4">
-            <h3 class="text-navy mb-2 text-lg">{strength.title}</h3>
-            <p class="leading-6 text-navy text-sm">{strength.description}</p>
+          <div class="bg-card rounded-xl p-4">
+            <h3 class="text-base mb-2 text-lg">{strength.title}</h3>
+            <p class="leading-6 text-base text-sm">{strength.description}</p>
           </div>
         ))
       }
     </div>
   </TranslucidSection>
   <TranslucidSection class="[grid-area:education]">
-    <h2 class="section-title text-navy mb-4 relative inline-block text-lg">
+    <h2 class="section-title text-base mb-4 relative inline-block text-lg">
       Education & Learning
     </h2>
-    <div class="bg-white rounded-xl p-4">
-      <div class="mb-4 pb-4 border-b border-blue/20">
-        <h3 class="text-navy mb-1 text-xl">
+    <div class="bg-card rounded-xl p-4">
+      <div class="mb-4 pb-4 border-b border-accent/20">
+        <h3 class="text-base mb-1 text-xl">
           {profile.education[0].degree}
         </h3>
-        <h4 class="text-blue mb-1 text-sm">
+        <h4 class="text-accent mb-1 text-sm">
           {profile.education[0].institution} • {profile.education[0].location}
         </h4>
-        <p class="text-blue text-xs opacity-80">
+        <p class="text-accent text-xs opacity-80">
           {profile.education[0].duration}
         </p>
         <ul class="list-disc ml-4 mt-2 text-sm">
@@ -146,14 +154,14 @@ import Layout from "@layouts/Layout.astro";
       </div>
 
       <div class="mb-4">
-        <h4 class="text-navy mb-2 text-sm font-semibold">
+        <h4 class="text-base mb-2 text-sm font-semibold">
           Continuous Learning
         </h4>
         {
           profile.continuousLearning.map((course) => (
             <div class="mb-2">
-              <h5 class="text-navy mb-0.5 text-sm">{course.course}</h5>
-              <p class="text-blue text-xs">
+              <h5 class="text-base mb-0.5 text-sm">{course.course}</h5>
+              <p class="text-accent text-xs">
                 {course.institution} • {course.completionDate}
               </p>
             </div>
@@ -162,11 +170,11 @@ import Layout from "@layouts/Layout.astro";
       </div>
 
       <div>
-        <h4 class="text-navy mb-2 text-sm font-semibold">Languages</h4>
+        <h4 class="text-base mb-2 text-sm font-semibold">Languages</h4>
         <div class="flex flex-wrap gap-1">
           {
             profile.languages.map((lang) => (
-              <span class="bg-cream text-navy px-2 py-1 rounded-full text-xs font-medium">
+              <span class="bg-fill text-base px-2 py-1 rounded-full text-xs font-medium">
                 {lang.language} ({lang.proficiency})
               </span>
             ))
@@ -175,8 +183,8 @@ import Layout from "@layouts/Layout.astro";
       </div>
     </div>
   </TranslucidSection>
-  <section class="bg-white p-4 rounded-xl max-w-3xl [grid-area:contact]">
-    <h2 class="text-navy mb-3 text-lg">Get in Touch!</h2>
+  <section class="bg-card p-4 rounded-xl max-w-3xl [grid-area:contact]">
+    <h2 class="text-base mb-3 text-lg">Get in Touch!</h2>
     <p class="mb-4 leading-6 text-sm">
       If you have any questions or would like to collaborate on a project,
       please feel free to reach out to me via email.
@@ -211,15 +219,15 @@ import Layout from "@layouts/Layout.astro";
     left: 0;
     width: var(--underline-width, 0);
     height: 3px;
-    background: var(--color-blue);
+    background: var(--color-accent);
     transition: width 0.6s ease;
   }
 
   .highlight {
     background: linear-gradient(
       120deg,
-      var(--color-cream) 0%,
-      var(--color-cream) 100%
+      var(--color-fill) 0%,
+      var(--color-fill) 100%
     );
     background-repeat: no-repeat;
     background-size: 100% 0.3em;

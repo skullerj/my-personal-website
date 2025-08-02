@@ -10,11 +10,6 @@
   --color-fill: var(--color-fill);
   --color-card: var(--color-card);
 
-  /* New brand colors */
-  --color-cream: #fdf0d5;
-  --color-navy: #003049;
-  --color-blue: #669bbc;
-
   --spacing: 0.25rem;
 }
 
@@ -29,7 +24,10 @@
 @layer base {
   :root,
   html {
-    @apply font-sans;
+    @apply font-sans; /* New brand colors */
+    --color-cream: #fdf0d5;
+    --color-navy: #003049;
+    --color-blue: #669bbc;
   }
 
   /* For now only the light theme will be available */
@@ -94,19 +92,19 @@
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    @apply bg-navy/30;
+    @apply bg-base/30;
   }
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-navy/50;
+    @apply bg-base/50;
   }
 
   /* Firefox scrollbar */
   html,
   * {
     scrollbar-width: thin;
-    scrollbar-color: color-mix(in oklab, var(--color-navy) 50%, transparent)
+    scrollbar-color: color-mix(in oklab, var(--color-base) 50%, transparent)
       transparent;
   }
 

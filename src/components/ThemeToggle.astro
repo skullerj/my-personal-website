@@ -1,0 +1,85 @@
+---
+import { Sun, Moon } from "@lucide/astro";
+---
+
+<button
+  id="theme-toggle"
+  class="flex items-center justify-center w-10 h-10 rounded-full bg-accent/20 hover:bg-accent/30 transition-colors duration-200 border-none cursor-pointer"
+  aria-label="Toggle theme"
+  title="Toggle theme"
+>
+  <Sun id="sun-icon" class="w-5 h-5 text-accent pointer-events-none" />
+  <Moon
+    id="moon-icon"
+    class="w-5 h-5 text-accent absolute opacity-0 pointer-events-none"
+  />
+</button>
+
+<script>
+  import { gsap } from "gsap";
+
+  function initThemeToggle() {
+    const themeToggle = document.getElementById("theme-toggle");
+    const sunIcon = document.getElementById("sun-icon");
+    const moonIcon = document.getElementById("moon-icon");
+    const htmlElement = document.documentElement;
+
+    if (!themeToggle || !sunIcon || !moonIcon) return;
+
+    function updateIcons(theme: string) {
+      if (theme === "dark") {
+        gsap.to(sunIcon, {
+          opacity: 0,
+          rotation: 180,
+          duration: 0.3,
+          ease: "power2.in",
+        });
+        gsap.to(moonIcon, {
+          opacity: 1,
+          rotation: 0,
+          duration: 0.3,
+          ease: "power2.in",
+        });
+      } else {
+        gsap.to(moonIcon, {
+          opacity: 0,
+          rotation: -180,
+          duration: 0.3,
+          ease: "power2.in",
+        });
+        gsap.to(sunIcon, {
+          opacity: 1,
+          rotation: 0,
+          duration: 0.3,
+          ease: "power2.in",
+        });
+      }
+    }
+
+    // Initialize icons based on current theme
+    const currentTheme = htmlElement.getAttribute("data-theme") || "dark";
+    updateIcons(currentTheme);
+
+    // Add click event listener
+    themeToggle.addEventListener("click", (e) => {
+      const currentTheme = htmlElement.getAttribute("data-theme") || "dark";
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+      htmlElement.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+      updateIcons(newTheme);
+    });
+
+    // Add hover animation
+    themeToggle.addEventListener("mouseenter", () => {
+      gsap.to(themeToggle, { scale: 1.1, duration: 0.2, ease: "power2.out" });
+    });
+
+    themeToggle.addEventListener("mouseleave", () => {
+      gsap.to(themeToggle, { scale: 1, duration: 0.2, ease: "power2.out" });
+    });
+  }
+
+  // Initialize after page transitions (for Astro view transitions)
+  document.addEventListener("astro:page-load", initThemeToggle);
+</script>
