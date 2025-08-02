@@ -25,7 +25,7 @@ const {
 
 const socialImageURL = new URL(
   ogImage ?? SITE.ogImage ?? "og.png",
-  Astro.url.origin
+  Astro.url.origin,
 ).href;
 ---
 
@@ -80,12 +80,12 @@ const socialImageURL = new URL(
     }
 
     <ClientRouter />
-    
+
     <!-- Theme detection script (must run before page renders) -->
     <script is:inline>
-      (function() {
-        const theme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.setAttribute('data-theme', theme);
+      (function () {
+        const theme = localStorage.getItem("theme") || "dark";
+        document.documentElement.setAttribute("data-theme", theme);
       })();
     </script>
   </head>
