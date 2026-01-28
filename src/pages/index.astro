@@ -21,18 +21,20 @@ import Layout from "@layouts/Layout.astro";
   </header>
 
   <!-- Left column -->
-  <div class="flex flex-col gap-4 lg:py-4 lg:overflow-y-auto lg:max-h-screen">
+  <div class="flex flex-col gap-4 pt-4 lg:py-4 lg:overflow-y-auto lg:max-h-screen">
     <main
-      class="min-h-[64vh] lg:min-h-[40vh] relative flex flex-col justify-between p-3 h-full"
+      class="min-h-[50vh] lg:min-h-[40vh] relative flex flex-col justify-between p-6 h-full rounded-xl overflow-hidden"
     >
       <Image
         src={mountains}
         alt="Ecuadorian mountains with a light fog"
-        class="absolute h-full w-full object-cover -z-1 top-0 left-0"
+        class="absolute h-full w-full object-cover object-top -z-1 top-0 left-0"
         id="mountains-image"
       />
-      <h1 class="text-3xl text-[var(--color-cream)]">Hi! I'm Juan</h1>
-      <h2 class="text-xl text-[var(--color-cream)]">
+      <h1 class="hero-text text-6xl text-[var(--color-cream)] opacity-0">
+        Hi! <br /> I'm Juan
+      </h1>
+      <h2 class="hero-text text-2xl text-[var(--color-cream)] opacity-0">
         a Front End Engineer from the mountains
       </h2>
     </main>
@@ -248,6 +250,17 @@ import Layout from "@layouts/Layout.astro";
       start: "bottom top",
       toggleActions: "play none reverse none",
     },
+  });
+
+  // Hero text fade-in animation on page load
+  gsap.set(".hero-text", { y: 20 });
+  gsap.to(".hero-text", {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    stagger: 0.2,
+    ease: "power2.out",
+    delay: 0.3,
   });
 
   // Section title underline animation on scroll
