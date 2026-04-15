@@ -86,6 +86,29 @@ const lastDeployed = new Date(profile.ambient.lastDeployed).toLocaleDateString(
       </p>
     </BentoCard>
 
+    <!-- Card: Personal Projects (full) -->
+    <BentoCard span="full" label="// PROJECTS">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {
+          profile.ambient.personalProjects.map((project) => (
+            <div>
+              <div class="flex items-start justify-between mb-2">
+                <h3 class="text-sm font-semibold text-text-primary">
+                  {project.title}
+                </h3>
+                <span class="ml-3 flex-shrink-0 font-mono text-xs text-text-mono border border-border rounded-full px-2 py-0.5">
+                  {project.tag}
+                </span>
+              </div>
+              <p class="text-sm text-text-secondary leading-relaxed">
+                {project.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </BentoCard>
+
     <!-- Cards 3+: Experience (half each) -->
     {
       profile.experience.map((job) => (
@@ -129,6 +152,24 @@ const lastDeployed = new Date(profile.ambient.lastDeployed).toLocaleDateString(
                   </span>
                 ))}
               </div>
+            </div>
+          ))
+        }
+      </div>
+    </BentoCard>
+
+    <!-- Card: Strengths (half) -->
+    <BentoCard span="half" label="// STRENGTHS">
+      <div class="space-y-5">
+        {
+          profile.strengths.map((strength) => (
+            <div>
+              <h3 class="text-sm font-semibold text-text-primary mb-1">
+                {strength.title}
+              </h3>
+              <p class="text-sm text-text-secondary leading-relaxed">
+                {strength.description}
+              </p>
             </div>
           ))
         }

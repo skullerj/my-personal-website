@@ -8,7 +8,7 @@
     "github": "https://github.com/skullerj",
     "website": "https://juan.rosero.dev"
   },
-  "professionalSummary": "Born in the Andes mountains of Ecuador and now based in London, I'm a Full Stack Developer with 5+ years at Engine AI, where I've grown from Junior Developer to Squad Lead. Most recently, I've been leveraging React, Python and PostgreSQL to build platforms that allow clients to extract value from their data as the tech lead of one of our core AI solutions.",
+  "professionalSummary": "Born in the Andes mountains of Ecuador and now based in London, I'm a Full Stack Developer with 5+ years at Engine AI, where I've grown from Junior Developer to Squad Lead. I build AI-powered products — currently leading the team behind our Research Intelligence solution, a RAG and agent-based platform that helps clients extract insights from large document collections.",
   "technicalSkills": [
     {
       "label": "Frontend Development",
@@ -18,7 +18,6 @@
       "label": "Backend Development",
       "entries": [
         "Node.js",
-        "NestJS",
         "Python",
         "FastAPI",
         "PostgreSQL",
@@ -37,6 +36,16 @@
         "Vite",
         "Storybook"
       ]
+    },
+    {
+      "label": "AI & Machine Learning",
+      "entries": [
+        "OpenAI API",
+        "RAG pipelines",
+        "Agent architectures",
+        "LLM evaluation",
+        "Weaviate"
+      ]
     }
   ],
   "experience": [
@@ -45,20 +54,20 @@
       "location": "Lisbon & London",
       "position": "Senior Full Stack Developer & Squad Lead",
       "duration": "September 2020 - Present",
-      "description": "Started as a Junior Developer and grew into a Squad Lead role over the past 5 years at this data insights startup. I've worked on building the core platform and on leveraging it to help clients turn their data into something useful. In my current role as Squad Lead, I'm in charge of making sure the team delivers high-quality features on time and while I miss hand-on coding, I get to help other people produce their best outcomes, which is something I value a lot.",
+      "description": "Started as a Junior Developer and grew into a Squad Lead role over the past 5 years at this data insights startup. I've worked on building the core platform and on using it to help clients turn their data into something useful. In my current role as Squad Lead, I'm in charge of making sure the team delivers high-quality features on time — and while I miss hands-on coding, I get to help other people do their best work, which is something I value a lot.",
       "achievements": [
         [
           "Developed our Dashboard Engine and API",
-          "My first job, was to extend what we call our \"Dashboard Engine\" - a React app that can transform configuration into full fledged dashboards with built-in design system customization. At the same time, developed the backend which would provide the configuration and data the dashboards would require."
-        ],
-                [
-          "Rapid prototyping",
-          "I was in charge of high stakes high rewards prototypes for potential clients. We wanted to \"show not tell\", and my skills making sure something looks good came very well in hand here."
+          "My first job was to extend what we call our Dashboard Engine — a React app that transforms configuration into full-fledged dashboards with a built-in design system. Alongside that, I built the backend that feeds it the configuration and data it needs."
         ],
         [
-                  "Squad Lead on a core AI solution",
-                  "Currently leading the development of our Research Intelligence solution, which helps clients navigate and extract insights from large collections of documents. This has been a great opportunity to learn about AI solutions and how to manage a development team effectively. I've learned Python in the process  which is a great perk"
-                ]
+          "Rapid prototyping",
+          "I built high-stakes, high-reward prototypes for potential clients — the kind where you get one shot to impress. We wanted to show rather than tell, and my eye for making things look good came in very handy."
+        ],
+        [
+          "Squad Lead on a core AI solution",
+          "Currently leading the development of our Research Intelligence solution — a platform built on OpenAI and Weaviate that covers the full RAG pipeline: ingestion, chunking, embedding, retrieval, and generation. On top of that there's an agent layer with skills that handle more complex retrieval tasks. The hardest part has been evaluation: figuring out how to reliably measure whether the system is producing good answers, and how new features affect that quality. Running this squad has taught me as much about building AI systems as it has about leading people."
+        ]
       ],
       "technologies": [
         "TypeScript",
@@ -76,7 +85,7 @@
       "location": "Quito",
       "position": "Frontend Developer",
       "duration": "September 2018 - December 2019",
-      "description": "Started as part of Jobsity's JSchool program, which I accessed through a hackathon and completed with merits. This lead to a full-time Front End Developer position. Jobsity connects Latin American developers with clients from the US and while working there I used my Full Stack skills mainly to develop internal tools ",
+      "description": "Started as part of Jobsity's JSchool program, which I accessed through a hackathon and completed with merits. This led to a full-time Front End Developer position. Jobsity connects Latin American developers with clients from the US and while working there I used my Full Stack skills mainly to develop internal tools.",
       "achievements": [
         [
           "Developed React component library",
@@ -84,12 +93,11 @@
         ],
         [
           "Built customer-employee management platform",
-          "While also creating the library, I worked on using it on the main platform that helped clients manage their remote teams effectively. This meant not only just bulding the UI but also the backend that would support it."
+          "While also building the library, I used it on the main platform that helped clients manage their remote teams. That meant building not just the UI but also the backend that powered it."
         ]
       ],
       "technologies": ["React", "Storybook", "NestJS", "TypeScript"]
     }
-
   ],
   "education": [
     {
@@ -125,29 +133,46 @@
       "proficiency": "Mid-Advanced"
     }
   ],
-  "keyStrengths": [
+  "strengths": [
+    {
+      "title": "Technically proficient",
+      "description": "I can jump into a complex codebase or problem with limited context and figure it out. I ask the right questions, make informed decisions where I need to, and try not to let uncertainty become a blocker for the people around me."
+    },
+    {
+      "title": "Good communicator",
+      "description": "I meet people where they are. I listen more than I talk, and I genuinely care about creating an environment where people feel safe being honest. That said, I know when the moment calls for clarity and I don't shy away from saying the important thing."
+    },
     {
       "title": "Design mindset",
-      "description": "I don't believe in perfect the first time. Iteration and continuos impromements are the bread and butter of my work. I'm also alright when someone asks my opinion on visual design matters and product usability."
-    },
-    {
-      "title": "Positive & Great communicator",
-      "description": "I can put complex technical concepts into bit sized easy to understand pieces. Also, I'm empathetic and a postive person. I like what I do and I bring this energy to my team."
-    },
-    {
-      "title": "Technical leadership",
-      "description": "I'm a good leader. I can create a vision of where we need to go and encourage and support the team to get there together."
+      "description": "I love the craft of making something that just feels right to use. I work closely with design teams and I take the experience people have seriously — continuous iteration is how I get there. My favourite kind of design is the kind people don't notice."
     }
   ],
   "ambient": {
     "currentlyBuilding": {
       "title": "Research Intelligence Platform",
-      "description": "Leading development of an AI-powered document intelligence solution — helping clients extract insights from large collections of research papers.",
+      "description": "Leading the squad building our Research Intelligence solution — helping clients navigate and extract insights from large collections of documents. This has been the perfect opportunity to discover new AI-powered workflows that have changed the way we work and deliver features.",
       "tag": "Active"
     },
+    "personalProjects": [
+      {
+        "title": "AI agent workflows",
+        "description": "I've been building agents to help with most of my daily work — writing code, planning tasks, doing research, and producing better content. A lot of what I've learned has fed back into how I think about agent design at Engine AI.",
+        "tag": "Ongoing"
+      },
+      {
+        "title": "This website",
+        "description": "My personal website — built with Astro and Tailwind. An ongoing project I use as an excuse to experiment with design and keep my front-end skills sharp.",
+        "tag": "Active"
+      },
+      {
+        "title": "meal-guru",
+        "description": "A personal app for meal planning — mostly an attempt to spend less time thinking about what to buy at the supermarket.",
+        "tag": "In progress"
+      }
+    ],
     "thinkingAbout": {
-      "title": "RAG pipelines at scale",
-      "description": "Exploring chunking strategies, embedding model selection, and retrieval evaluation for production RAG systems.",
+      "title": "Designing for the assistant",
+      "description": "Most people ask 'how do we rebuild our product so an LLM can do the work?' I think that's the wrong question. The right one is: how do we make our existing product usable by an LLM? That usually means exposing a well-documented, well-abstracted interface — something designed for an assistant to reason about, not just for code to call.",
       "link": null
     },
     "lastDeployed": "2026-04-11T00:00:00Z"
