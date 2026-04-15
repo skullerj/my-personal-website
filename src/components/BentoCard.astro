@@ -1,0 +1,39 @@
+---
+interface Props {
+  span?: "half" | "full" | "third" | "two-thirds";
+  class?: string;
+  label?: string;
+  noPadding?: boolean;
+}
+
+const {
+  span = "full",
+  label,
+  noPadding = false,
+  class: className = "",
+} = Astro.props;
+
+const spanClass = {
+  half: "col-span-12 lg:col-span-6",
+  full: "col-span-12",
+  third: "col-span-12 lg:col-span-4",
+  "two-thirds": "col-span-12 lg:col-span-8",
+}[span];
+---
+
+<article
+  class:list={[
+    "bento-card",
+    spanClass,
+    "bg-surface border border-border rounded-2xl backdrop-blur-sm hover:scale-[1.02] transition-transform duration-200 will-change-transform",
+    !noPadding && "p-6",
+    className,
+  ]}
+>
+  {
+    label && (
+      <span class="block font-mono text-xs text-text-mono mb-4">{label}</span>
+    )
+  }
+  <slot />
+</article>

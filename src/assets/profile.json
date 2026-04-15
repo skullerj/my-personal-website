@@ -138,5 +138,18 @@
       "title": "Technical leadership",
       "description": "I'm a good leader. I can create a vision of where we need to go and encourage and support the team to get there together."
     }
-  ]
+  ],
+  "ambient": {
+    "currentlyBuilding": {
+      "title": "Research Intelligence Platform",
+      "description": "Leading development of an AI-powered document intelligence solution — helping clients extract insights from large collections of research papers.",
+      "tag": "Active"
+    },
+    "thinkingAbout": {
+      "title": "RAG pipelines at scale",
+      "description": "Exploring chunking strategies, embedding model selection, and retrieval evaluation for production RAG systems.",
+      "link": null
+    },
+    "lastDeployed": "2026-04-11T00:00:00Z"
+  }
 }

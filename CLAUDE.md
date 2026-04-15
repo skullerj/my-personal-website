@@ -44,6 +44,12 @@ This is Juan Rosero's personal website built with Astro. Originally inspired by 
 - Uses CSS custom properties for theming
 - Theme toggle functionality via `/public/toggle-theme.js`
 - Dark/light mode support built into the layout
+- **Always use the semantic Tailwind token classes — never hardcode raw hex or rgba values in component markup.** The design tokens are defined in `src/styles/global.css` under `@theme` and overridden per theme in `@layer base`:
+  - Text: `text-text-primary`, `text-text-secondary`, `text-text-mono`
+  - Accent: `text-accent`, `bg-accent`, `border-accent`, `outline-accent`
+  - Surfaces/borders: `bg-surface`, `border-border`
+  - Background: `bg-bg`
+  - Opacity modifiers work as normal: `border-accent/30`, etc.
 
 ### Content Management
 - Resume/portfolio content stored in `src/assets/profile.json`

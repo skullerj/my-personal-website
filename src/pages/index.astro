@@ -1,116 +1,130 @@
 ---
 import { Image } from "astro:assets";
-import mountains from "@assets/mountains.png";
 import me from "@assets/me.png";
 import profile from "@assets/profile.json";
+import socialIcons from "@assets/socialIcons";
+import BentoCard from "@components/BentoCard.astro";
 import Button from "@components/Button.astro";
-import TranslucidSection from "@components/TranslucidSection.astro";
 import ThemeToggle from "@components/ThemeToggle.astro";
-
+import { SOCIALS } from "@config";
 import Layout from "@layouts/Layout.astro";
+
+const activeSocials = SOCIALS.filter((s) => s.active);
+const lastDeployed = new Date(profile.ambient.lastDeployed).toLocaleDateString(
+  "en-GB",
+  { day: "numeric", month: "short", year: "numeric" }
+);
 ---
 
-<Layout
-  class="grid grid-cols-1 lg:grid-cols-2 gap-4 px-4 lg:max-w-7xl lg:mx-auto lg:h-screen lg:overflow-hidden"
->
-  <header
-    class="z-2 fixed top-0 left-0 bg-base w-screen h-12 py-2 px-4 flex justify-between opacity-0"
-  >
-    <h3 id="name" class="text-xl text-fill">Juan Rosero</h3>
-    <h3 class="text-xl text-fill">Front End Engineer</h3>
-  </header>
-
-  <!-- Left column -->
-  <div class="flex flex-col gap-4 pt-4 lg:py-4 lg:overflow-y-auto lg:max-h-screen">
-    <main
-      class="min-h-[50vh] lg:min-h-[40vh] relative flex flex-col justify-between p-6 h-full rounded-xl overflow-hidden"
-    >
-      <Image
-        src={mountains}
-        alt="Ecuadorian mountains with a light fog"
-        class="absolute h-full w-full object-cover object-top -z-1 top-0 left-0"
-        id="mountains-image"
-      />
-      <h1 class="hero-text text-6xl text-[var(--color-cream)] opacity-0">
-        Hi! <br /> I'm Juan
-      </h1>
-      <h2 class="hero-text text-2xl text-[var(--color-cream)] opacity-0">
-        a Front End Engineer from the mountains
-      </h2>
-    </main>
-    <section class="bg-card p-4 max-w-3xl rounded-xl relative">
-      <div class="absolute bottom-4 right-4">
-        <ThemeToggle />
-      </div>
-      <p class="mb-4 leading-6 text-sm">
-        {profile.professionalSummary}
-      </p>
-      <div class="mt-4 pt-4 border-t border-accent/30 flex items-start gap-4">
+<Layout>
+  <div class="grid grid-cols-12 gap-4 max-w-7xl mx-auto px-4 py-8">
+    <!-- Card 1: About (two-thirds) -->
+    <BentoCard span="two-thirds" label="// ABOUT">
+      <div class="flex items-start gap-4 mb-4">
         <Image
           src={me}
-          alt="Juan Rosero's profile photo"
-          class="right-4 top-4 w-16 h-16 rounded-full object-cover"
+          alt="Juan Rosero"
+          class="w-12 h-12 rounded-full object-cover flex-shrink-0"
         />
         <div>
-          <p class="mb-1 text-accent text-sm">
-            <strong>Location:</strong>
-            {profile.personalInfo.location}
-          </p>
-          <p class="mb-1 text-accent text-sm">
-            <strong>Email:</strong>
-            {profile.personalInfo.email}
+          <h1 class="text-2xl font-semibold text-text-primary leading-tight">
+            {profile.personalInfo.name}
+          </h1>
+          <p class="font-mono text-xs text-text-mono mt-0.5">
+            {profile.personalInfo.title}
           </p>
         </div>
       </div>
-    </section>
-    <section class="bg-card p-4 rounded-xl max-w-3xl">
-      <h2 class="text-base mb-3 text-lg">Get in Touch!</h2>
-      <p class="mb-4 leading-6 text-sm">
-        If you have any questions or would like to collaborate on a project,
-        please feel free to reach out to me via email.
+      <p class="text-sm text-text-secondary leading-relaxed mb-4">
+        {profile.professionalSummary}
       </p>
-      <div class="flex gap-3 flex-wrap mt-4">
-        <Button variant="primary" href={`mailto:${profile.personalInfo.email}`}>
-          Get In Touch
-        </Button>
-        <Button variant="secondary" href="/resume.pdf">
-          Get My Resume in PDF
-        </Button>
-      </div>
-    </section>
-  </div>
-
-  <!-- Right column -->
-  <div class="flex flex-col gap-4 lg:py-4 lg:overflow-y-auto lg:max-h-screen">
-    <TranslucidSection>
-      <h2 class="section-title text-base mb-4 relative inline-block text-lg">
-        Key Strengths
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+      <div class="flex flex-wrap items-center gap-4 mt-4">
+        <span class="font-mono text-xs text-text-mono"
+          >{profile.personalInfo.location}</span
+        >
+        <span class="font-mono text-xs text-text-mono"
+          >{profile.personalInfo.email}</span
+        >
         {
-          profile.keyStrengths.map((strength) => (
-            <div class="bg-card rounded-xl p-4">
-              <h3 class="text-base mb-2 text-lg">{strength.title}</h3>
-              <p class="leading-6 text-base text-sm">{strength.description}</p>
-            </div>
+          activeSocials.map((social) => (
+            <a
+              href={social.href}
+              title={social.linkTitle}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-text-secondary hover:text-accent transition-colors duration-200"
+              set:html={socialIcons[social.name]}
+            />
           ))
         }
+        <span
+          class="inline-flex items-center gap-1.5 text-xs font-mono text-accent border border-accent/30 rounded-full px-2.5 py-1"
+        >
+          <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-accent"
+          ></span>
+          Open to work
+        </span>
       </div>
-    </TranslucidSection>
-    <TranslucidSection>
-      <h4 class="section-title text-base relative inline-block text-lg mb-4">
-        Technical Skills
-      </h4>
-      <div class="grid grid-cols-1 gap-4 mt-4">
+    </BentoCard>
+
+    <!-- Card 2: Currently Building (third) -->
+    <BentoCard span="third" label="// NOW">
+      <div class="flex items-start justify-between mb-3">
+        <h2 class="text-base font-semibold text-text-primary leading-snug">
+          {profile.ambient.currentlyBuilding.title}
+        </h2>
+        <span
+          class="ml-3 flex-shrink-0 inline-flex items-center gap-1.5 text-xs font-mono text-accent border border-accent/30 rounded-full px-2 py-0.5"
+        >
+          <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-accent"
+          ></span>
+          {profile.ambient.currentlyBuilding.tag}
+        </span>
+      </div>
+      <p class="text-sm text-text-secondary leading-relaxed">
+        {profile.ambient.currentlyBuilding.description}
+      </p>
+    </BentoCard>
+
+    <!-- Cards 3+: Experience (half each) -->
+    {
+      profile.experience.map((job) => (
+        <BentoCard span="half" label="// EXP">
+          <div class="mb-3">
+            <h2 class="text-base font-semibold text-text-primary">
+              {job.position}
+            </h2>
+            <p class="text-sm text-text-secondary mt-0.5">
+              {job.company} &bull; {job.location}
+            </p>
+            <span class="font-mono text-xs text-text-mono">{job.duration}</span>
+          </div>
+          <p class="text-sm text-text-secondary leading-relaxed mb-4">
+            {job.description}
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            {job.technologies.map((tech) => (
+              <span class="font-mono text-xs bg-surface border border-border rounded px-2 py-0.5 text-text-secondary">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </BentoCard>
+      ))
+    }
+
+    <!-- Card: Skills (full) -->
+    <BentoCard span="full" label="// STACK">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {
-          profile.technicalSkills.map((skill) => (
-            <div class="bg-card/60 p-3 rounded-xl border-l-4 border-accent">
-              <div class="text-sm text-base tracking-wide mb-2 font-semibold">
-                {skill.label}
-              </div>
-              <div class="flex flex-wrap gap-1">
-                {skill.entries.map((entry) => (
-                  <span class="bg-fill text-base px-2 py-1 rounded-full text-xs font-medium ">
+          profile.technicalSkills.map((category) => (
+            <div>
+              <span class="block font-mono text-xs text-text-mono mb-3 uppercase tracking-wider">
+                {category.label}
+              </span>
+              <div class="flex flex-wrap gap-1.5">
+                {category.entries.map((entry) => (
+                  <span class="font-mono text-xs bg-surface border border-border rounded px-2 py-0.5 text-text-secondary">
                     {entry}
                   </span>
                 ))}
@@ -119,159 +133,64 @@ import Layout from "@layouts/Layout.astro";
           ))
         }
       </div>
-    </TranslucidSection>
-    <TranslucidSection class="flex flex-col">
-      <h2
-        class="section-title text-base mb-4 relative inline-block self-start text-lg"
-      >
-        Professional Experience
-      </h2>
-      <div class="grid gap-4 mt-4 overflow-auto">
-        {
-          profile.experience.map((job) => (
-            <div class="bg-card rounded-xl p-4">
-              <div class="mb-4">
-                <h3 class="text-base text-lg mb-1">{job.position}</h3>
-                <h4 class="text-accent mb-1">
-                  {job.company} • {job.location}
-                </h4>
-                <p class="text-accent text-sm opacity-80">{job.duration}</p>
-              </div>
-              <p class="mb-4 leading-6 text-sm">{job.description}</p>
-              <div>
-                <h5 class="text-base mb-2 text-sm font-semibold">
-                  Technologies Used:
-                </h5>
-                <div class="flex flex-wrap gap-1">
-                  {job.technologies.map((tech) => (
-                    <span class="bg-fill text-base px-2 py-1 rounded-full text-xs font-medium">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </TranslucidSection>
-    <TranslucidSection>
-      <h2 class="section-title text-base mb-4 relative inline-block text-lg">
-        Education
-      </h2>
-      <div class="bg-card rounded-xl p-4">
-        <div class="mb-4 pb-4 border-b border-accent/20">
-          <h3 class="text-base mb-1 text-xl">
-            {profile.education[0].degree}
-          </h3>
-          <h4 class="text-accent mb-1 text-sm">
-            {profile.education[0].institution} • {profile.education[0].location}
-          </h4>
-          <p class="text-accent text-xs opacity-80">
-            {profile.education[0].duration}
-          </p>
-          <ul class="list-disc ml-4 mt-2 text-sm">
-            {profile.education[0].details.map((detail) => <li>{detail}</li>)}
-          </ul>
-        </div>
+    </BentoCard>
 
-        <div class="mb-4">
-          <h4 class="text-base mb-2 text-sm font-semibold">
-            Continuous Learning
-          </h4>
-          {
-            profile.continuousLearning.map((course) => (
-              <div class="mb-2">
-                <h5 class="text-base mb-0.5 text-sm">{course.course}</h5>
-                <p class="text-accent text-xs">
-                  {course.institution} • {course.completionDate}
-                </p>
-              </div>
-            ))
-          }
-        </div>
+    <!-- Card: Thinking About (half) -->
+    <BentoCard span="half" label="// THINKING">
+      <h2 class="text-base font-semibold text-text-primary mb-3">
+        {profile.ambient.thinkingAbout.title}
+      </h2>
+      <p class="text-sm text-text-secondary leading-relaxed">
+        {profile.ambient.thinkingAbout.description}
+      </p>
+    </BentoCard>
 
+    <!-- Card: Contact (full) -->
+    <BentoCard span="full" label="// CONTACT">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h4 class="text-base mb-2 text-sm font-semibold">Languages</h4>
-          <div class="flex flex-wrap gap-1">
-            {
-              profile.languages.map((lang) => (
-                <span class="bg-fill text-base px-2 py-1 rounded-full text-xs font-medium">
-                  {lang.language} ({lang.proficiency})
-                </span>
-              ))
-            }
-          </div>
+          <h2 class="text-base font-semibold text-text-primary mb-1">
+            Get In Touch
+          </h2>
+          <p class="text-sm text-text-secondary">
+            Reach out if you'd like to collaborate or have a question.
+          </p>
+        </div>
+        <div class="flex items-center gap-3 flex-wrap">
+          <Button variant="primary" href={`mailto:${profile.personalInfo.email}`}>
+            Get In Touch
+          </Button>
+          <Button variant="secondary" href="/resume.pdf">
+            Get Resume
+          </Button>
+          <ThemeToggle />
         </div>
       </div>
-    </TranslucidSection>
+      <div class="mt-4 pt-4 border-t border-border">
+        <span class="font-mono text-xs text-text-mono"
+          >Last deployed: {lastDeployed}</span
+        >
+      </div>
+    </BentoCard>
   </div>
 </Layout>
 
-<style>
-  .section-title::after {
-    content: "";
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: var(--underline-width, 0);
-    height: 3px;
-    background: var(--color-accent);
-    transition: width 0.6s ease;
-  }
-
-  .highlight {
-    background: linear-gradient(
-      120deg,
-      var(--color-fill) 0%,
-      var(--color-fill) 100%
-    );
-    background-repeat: no-repeat;
-    background-size: 100% 0.3em;
-    background-position: 0 88%;
-    transition: background-size 0.25s ease-in;
-  }
-
-  .highlight:hover {
-    background-size: 100% 88%;
-  }
-</style>
 <script>
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.to("header", {
-    opacity: 1,
-    duration: 0.5,
-    scrollTrigger: {
-      trigger: "main",
-      start: "bottom top",
-      toggleActions: "play none reverse none",
-    },
-  });
-
-  // Hero text fade-in animation on page load
-  gsap.set(".hero-text", { y: 20 });
-  gsap.to(".hero-text", {
-    opacity: 1,
-    y: 0,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: "power2.out",
-    delay: 0.3,
-  });
-
-  // Section title underline animation on scroll
-  gsap.utils.toArray(".section-title").forEach((title) => {
-    gsap.to(title as HTMLElement, {
-      "--underline-width": "100%",
-      duration: 0.2,
+  gsap.utils.toArray(".bento-card").forEach((card) => {
+    gsap.from(card as HTMLElement, {
+      y: 16,
+      opacity: 0,
+      duration: 0.5,
+      ease: "power2.out",
       scrollTrigger: {
-        trigger: title as HTMLElement,
-        start: "top 80%",
-        toggleActions: "play pause resume reset",
+        trigger: card as HTMLElement,
+        start: "top 88%",
+        toggleActions: "play none none none",
       },
     });
   });

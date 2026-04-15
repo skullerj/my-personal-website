@@ -1,5 +1,5 @@
-import type { Site, SocialObjects } from "./types";
 import profile from "./assets/profile.json";
+import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
   website: "https://astro-paper.pages.dev/", // replace this with your deployed domain
