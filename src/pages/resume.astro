@@ -25,10 +25,12 @@ const {
     <header class="text-center mb-8 border-b-2 border-gray-200 pb-6">
       <h1 class="text-4xl font-bold text-gray-800 mb-2">{personalInfo.name}</h1>
       <h2 class="text-xl text-gray-600 mb-4">{personalInfo.title}</h2>
-      <div class="flex justify-center space-x-6 text-sm text-gray-700">
+      <div class="flex justify-center p-2 text-sm text-gray-700 flex-wrap gap-4">
         <span>{personalInfo.location}</span>
         <span>{personalInfo.email}</span>
         <span>{personalInfo.phone}</span>
+      </div>
+      <div class="flex justify-center space-x-6 text-sm text-gray-700 flex-wrap ">
         <a
           href={personalInfo.github}
           target="_blank"
@@ -39,13 +41,11 @@ const {
           target="_blank"
           class="text-blue-600 hover:underline">juan.rosero.dev</a
         >
-        {personalInfo.linkedin && (
-          <a
-            href={personalInfo.linkedin}
-            target="_blank"
-            class="text-blue-600 hover:underline">linkedin.com/in/juan-rosero-dev</a
-          >
-        )}
+        <a
+          href={personalInfo.linkedin}
+          target="_blank"
+          class="text-blue-600 hover:underline">LinkedIn/juan-rosero-dev</a
+        >
       </div>
     </header>
 
