@@ -1,0 +1,150 @@
+{
+  "personalInfo": {
+    "name": "Juan Rosero",
+    "title": "Senior Full Stack Developer",
+    "location": "London, UK",
+    "email": "juan@rosero.dev",
+    "phone": "+44 7591 641684",
+    "github": "https://github.com/skullerj",
+    "linkedin": "https://www.linkedin.com/in/juan-rosero-dev/",
+    "website": "https://juan.rosero.dev"
+  },
+  "professionalSummary": "Senior Full Stack Developer and Squad Lead with 7+ years of experience building data and AI products. Specialises in TypeScript, Python, and React across the full stack. Currently leading a team of 5 at Engine AI, where the Research Intelligence platform — a RAG and agent-based solution — serves 1,000+ users and processes 17,000 documents for a major client.",
+  "technicalSkills": [
+    {
+      "label": "Frontend Development",
+      "entries": ["React", "TypeScript", "HTML5", "CSS3", "GraphQL", "Astro"]
+    },
+    {
+      "label": "Backend Development",
+      "entries": [
+        "Node.js",
+        "Python",
+        "FastAPI",
+        "PostgreSQL",
+        "Elasticsearch"
+      ]
+    },
+    {
+      "label": "Tools and Technologies",
+      "entries": [
+        "Docker",
+        "Azure",
+        "AWS",
+        "Firebase",
+        "Jest",
+        "Vite",
+        "Storybook"
+      ]
+    },
+    {
+      "label": "AI & Machine Learning",
+      "entries": [
+        "OpenAI API",
+        "RAG pipelines",
+        "Agent architectures",
+        "LLM evaluation",
+        "Weaviate"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Engine AI",
+      "location": "Lisbon & London",
+      "position": "Senior Full Stack Developer & Squad Lead",
+      "duration": "September 2020 - Present",
+      "description": "Progressed from Junior Developer to Squad Lead over 5 years at Engine AI, a data insights startup. Owned the core platform from early-stage development through to leading a product squad delivering client-facing AI solutions.",
+      "achievements": [
+        [
+          "Built Dashboard Engine and API",
+          "Extended the Dashboard Engine — a React application that transforms JSON configuration into full-featured dashboards with a built-in design system — and built the backend API that feeds it configuration and data."
+        ],
+        [
+          "Client prototype conversions",
+          "Built 5 high-fidelity prototypes for prospective clients, 2 of which converted into production engagements, demonstrating platform value with working software before contract signature."
+        ],
+        [
+          "Led Research Intelligence squad",
+          "Led a 5-engineer squad to build a production RAG and agent platform on OpenAI and Weaviate, processing 17,000 documents and serving 1,000+ users for a major client; introduced an LLM evaluation framework to systematically measure retrieval quality across releases."
+        ]
+      ],
+      "technologies": [
+        "TypeScript",
+        "Python",
+        "React",
+        "PostgreSQL",
+        "GraphQL",
+        "Docker",
+        "AWS",
+        "Azure"
+      ]
+    },
+    {
+      "company": "Jobsity",
+      "location": "Quito",
+      "position": "Frontend Developer",
+      "duration": "September 2018 - December 2019",
+      "description": "Joined via the JSchool programme — a merit-based entry track accessed through a hackathon — and converted to a full-time Frontend Developer. Worked primarily on internal tools connecting Latin American developers with US clients.",
+      "achievements": [
+        [
+          "Built React component library",
+          "Built a library of 10+ reusable React components, documented and tested with Storybook, adopted across 2 internal products."
+        ],
+        [
+          "Built remote team management platform",
+          "Delivered the full-stack platform managing 30+ employees across 10 client accounts, building both the React frontend using the component library and the NestJS backend."
+        ]
+      ],
+      "technologies": ["React", "Storybook", "NestJS", "TypeScript"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Universidad de las Américas",
+      "location": "Quito",
+      "degree": "Electronics and Telecommunications Engineering",
+      "duration": "July 2012 - February 2018",
+      "details": [
+        "Full merit scholarship awarded by the State",
+        "Thesis: Bottle image classification system using Convolutional Neural Networks",
+        "Equivalent to Masters in Computer Science (European standard)"
+      ]
+    }
+  ],
+  "continuousLearning": [
+    {
+      "course": "Design Thinking, the Ultimate Guide",
+      "institution": "Interaction Design Foundation",
+      "completionDate": "June 2023"
+    }
+  ],
+  "languages": [
+    {
+      "language": "Spanish",
+      "proficiency": "Native"
+    },
+    {
+      "language": "English",
+      "proficiency": "Advanced"
+    },
+    {
+      "language": "Portuguese",
+      "proficiency": "Mid-Advanced"
+    }
+  ],
+  "strengths": [
+    {
+      "title": "Technically proficient",
+      "description": "I can jump into a complex codebase or problem with limited context and figure it out. I ask the right questions, make informed decisions where I need to, and try not to let uncertainty become a blocker for the people around me."
+    },
+    {
+      "title": "Good communicator",
+      "description": "I meet people where they are. I listen more than I talk, and I genuinely care about creating an environment where people feel safe being honest. That said, I know when the moment calls for clarity and I don't shy away from saying the important thing."
+    },
+    {
+      "title": "Design mindset",
+      "description": "I love the craft of making something that just feels right to use. I work closely with design teams and I take the experience people have seriously — continuous iteration is how I get there. My favourite kind of design is the kind people don't notice."
+    }
+  ]
+}
