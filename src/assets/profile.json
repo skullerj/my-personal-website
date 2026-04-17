@@ -162,12 +162,14 @@
       {
         "title": "This website",
         "description": "My personal website — built with Astro and Tailwind. An ongoing project I use as an excuse to experiment with design and keep my front-end skills sharp.",
-        "tag": "Active"
+        "tag": "Active",
+        "link": "https://github.com/skullerj/my-personal-website"
       },
       {
         "title": "meal-guru",
         "description": "A personal app for meal planning — mostly an attempt to spend less time thinking about what to buy at the supermarket.",
-        "tag": "In progress"
+        "tag": "In progress",
+        "link": "https://github.com/skullerj/meal-guru"
       }
     ],
     "thinkingAbout": {

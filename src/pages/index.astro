@@ -6,13 +6,14 @@ import socialIcons from "@assets/socialIcons";
 import BentoCard from "@components/BentoCard.astro";
 import Button from "@components/Button.astro";
 import ThemeToggle from "@components/ThemeToggle.astro";
+import { ExternalLink } from "@lucide/astro";
 import { SOCIALS } from "@config";
 import Layout from "@layouts/Layout.astro";
 
 const activeSocials = SOCIALS.filter((s) => s.active);
 const lastDeployed = new Date(profile.ambient.lastDeployed).toLocaleDateString(
   "en-GB",
-  { day: "numeric", month: "short", year: "numeric" }
+  { day: "numeric", month: "short", year: "numeric" },
 );
 ---
 
@@ -69,8 +70,7 @@ const lastDeployed = new Date(profile.ambient.lastDeployed).toLocaleDateString(
         <span
           class="ml-3 flex-shrink-0 inline-flex items-center gap-1.5 text-xs font-mono text-accent border border-accent/30 rounded-full px-2 py-0.5"
         >
-          <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-accent"
-          ></span>
+          <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-accent"></span>
           {profile.ambient.currentlyBuilding.tag}
         </span>
       </div>
@@ -86,9 +86,21 @@ const lastDeployed = new Date(profile.ambient.lastDeployed).toLocaleDateString(
           profile.ambient.personalProjects.map((project) => (
             <div>
               <div class="flex items-start justify-between mb-2">
-                <h3 class="text-sm font-semibold text-text-primary">
-                  {project.title}
-                </h3>
+                {project.link ? (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1 text-sm text-text-primary hover:text-accent transition-colors duration-200"
+                  >
+                    <span class="font-semibold">{project.title}</span>
+                    <ExternalLink aria-hidden="true" class="size-4 fill-none" />
+                  </a>
+                ) : (
+                  <h3 class="text-sm font-semibold text-text-primary">
+                    {project.title}
+                  </h3>
+                )}
                 <span class="ml-3 flex-shrink-0 font-mono text-xs text-text-mono border border-border rounded-full px-2 py-0.5">
                   {project.tag}
                 </span>
@@ -181,7 +193,9 @@ const lastDeployed = new Date(profile.ambient.lastDeployed).toLocaleDateString(
 
     <!-- Card: Contact (full) -->
     <BentoCard span="full" label="// CONTACT">
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div
+        class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+      >
         <div>
           <h2 class="text-base font-semibold text-text-primary mb-1">
             Get In Touch
@@ -191,12 +205,13 @@ const lastDeployed = new Date(profile.ambient.lastDeployed).toLocaleDateString(
           </p>
         </div>
         <div class="flex items-center gap-3 flex-wrap">
-          <Button variant="primary" href={`mailto:${profile.personalInfo.email}`}>
+          <Button
+            variant="primary"
+            href={`mailto:${profile.personalInfo.email}`}
+          >
             Get In Touch
           </Button>
-          <Button variant="secondary" href="/resume.pdf">
-            Get Resume
-          </Button>
+          <Button variant="secondary" href="/resume.pdf">Get Resume</Button>
           <ThemeToggle />
         </div>
       </div>
