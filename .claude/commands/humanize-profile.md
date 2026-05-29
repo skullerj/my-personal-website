@@ -8,7 +8,7 @@ Based on how Juan actually writes, his voice is:
 - **Direct and honest** — no hedging, no corporate speak
 - **Specific over vague** — he names real things ("I've learned Python in the process — which is a great perk") rather than using abstractions
 - **Casually confident** — comfortable saying "I'm good at this" without turning it into a LinkedIn boast
-- **Acknowledges tradeoffs** — he's honest when things have a downside ("I miss hands-on coding")
+- **Acknowledges tradeoffs** — he's honest when things have a downside ("I've learned Python in the process — which is a great perk")
 - **Active voice, first person** — "I built", "I led", not "was responsible for" or "led the effort to"
 - **Occasionally playful** — light touches of humour without overdoing it
 
