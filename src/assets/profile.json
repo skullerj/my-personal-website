@@ -54,7 +54,7 @@
       "location": "Lisbon & London",
       "position": "Senior Full Stack Developer & Squad Lead",
       "duration": "September 2020 - Present",
-      "description": "Started as a Junior Developer and grew into a Squad Lead role over the past 5 years at this data insights startup. I've worked on building the core platform and on using it to help clients turn their data into something useful. In my current role as Squad Lead, I'm in charge of making sure the team delivers high-quality features on time — balancing hands-on development with leading the team, so I stay close to the code while helping each person do their best work, which is something I value a lot.",
+      "description": "Started as a Junior Developer and grew into a Squad Lead role over the past 5 years at this data insights startup. I've worked on building the core platform and on using it to help clients turn their data into something useful. In my current role as Squad Lead, I'm in charge of making sure the team ships good work on time — balancing hands-on development with leading the team, so I stay close to the code while helping each person do their best work, which is something I value a lot.",
       "achievements": [
         [
           "Developed our Dashboard Engine and API",
@@ -140,7 +140,7 @@
     },
     {
       "title": "Good communicator",
-      "description": "I meet people where they are. I listen more than I talk, and I genuinely care about creating an environment where people feel safe being honest. That said, I know when the moment calls for clarity and I don't shy away from saying the important thing."
+      "description": "I meet people where they are. I listen more than I talk, and I want people to feel safe being honest with me. That said, I know when the moment calls for clarity and I don't shy away from saying the important thing."
     },
     {
       "title": "Design mindset",
@@ -150,7 +150,7 @@
   "ambient": {
     "currentlyBuilding": {
       "title": "Research Intelligence Platform",
-      "description": "Leading the squad building our Research Intelligence solution — helping clients navigate and extract insights from large collections of documents. This has been the perfect opportunity to discover new AI-powered workflows that have changed the way we work and deliver features.",
+      "description": "Leading the squad building our Research Intelligence solution — helping clients navigate and extract insights from large collections of documents. It's been a good excuse to try new AI-powered workflows, and some of them have actually stuck — changed how we build and ship features.",
       "tag": "Active"
     },
     "personalProjects": [

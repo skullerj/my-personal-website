@@ -54,11 +54,11 @@
       "location": "Lisbon & London",
       "position": "Senior Full Stack Developer & Squad Lead",
       "duration": "September 2020 - Present",
-      "description": "Progressed from Junior Developer to Squad Lead over 5 years at Engine AI, a data insights startup. Owned the core platform from early-stage development through to leading a product squad delivering client-facing AI solutions.",
+      "description": "Progressed from Junior Developer to Squad Lead over 5 years at Engine AI, a data insights startup. Owned the platform full stack — from the PostgreSQL data model and backend API through to the React frontend — from early-stage development through to leading a product squad delivering client-facing AI products.",
       "achievements": [
         [
           "Built Dashboard Engine and API",
-          "Extended the Dashboard Engine — a React application that transforms JSON configuration into full-featured dashboards with a built-in design system — and built the backend API that feeds it configuration and data."
+          "Extended the Dashboard Engine — a React application that transforms JSON configuration into full-featured dashboards with a built-in design system — and designed the PostgreSQL data model and API layer underneath it, handling how configuration and data get stored, validated, and served."
         ],
         [
           "Client prototype conversions",
@@ -66,7 +66,7 @@
         ],
         [
           "Led Research Intelligence squad",
-          "Led a 5-engineer squad to build a production RAG and agent platform on OpenAI and Weaviate, processing 17,000 documents and serving 1,000+ users for a major client; introduced an LLM evaluation framework to systematically measure retrieval quality across releases."
+          "Led a 5-engineer squad to build a production RAG and agent platform on OpenAI and Weaviate, owning the backend end-to-end — ingestion, chunking, embedding, and retrieval — plus an agent layer for complex queries; processed 17,000 documents and served 1,000+ users for a major client, and introduced an LLM evaluation framework to measure retrieval quality across releases."
         ]
       ],
       "technologies": [
